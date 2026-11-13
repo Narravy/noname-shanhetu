@@ -16,6 +16,7 @@ import { ownedRewardSkillIds } from './src/run-skills.js';
 import { attachEnemyDetails } from './src/enemy-details.js';
 import { applyMutationsToSpec, mutationAllowed } from './src/mutation-rules.js';
 import { installMutationCards } from './src/mutation-cards.js';
+import { createCharacterTraitSkills, characterTraitSkillIds } from './src/character-trait-effects.js';
 
 export const type = 'extension';
 const baseURL = new URL('./', import.meta.url).href;
@@ -35,6 +36,9 @@ async function getService() {
   installExtraTactics(catalog.tactics);
   installExtraCards(catalog);
   installMutationCards({ lib, game });
+  const traitSkills = createCharacterTraitSkills({ lib, game, get, ui, _status }, catalog.characterTraits?.traits || []);
+  Object.assign(lib.skill, traitSkills.skill);
+  Object.assign(lib.translate, traitSkills.translate);
   const extraSkills = installExtraSkills(catalog, {lib,game,get,ui,_status});
   const enemySkills = installEnemySkills(catalog, {lib,game,get,ui,_status});
   const adapters = createAdapters(lib, get, getNativeTacticsCatalog(), catalog);
@@ -71,7 +75,8 @@ function makeBattleSpec(context) {
   const player = {
     character: run.character, hp: run.hp, maxHp: run.maxHp,
     portrait: originalPlayerPortrait(run.character),
-    skills: ownedRewardSkillIds(run).map(id => adapters.resolve('skill', id)?.nativeId).filter(Boolean),
+    skills: [...ownedRewardSkillIds(run).map(id => adapters.resolve('skill', id)?.nativeId).filter(Boolean), ...characterTraitSkillIds(run.traitIds || [], catalog.characterTraits?.traits || [])],
+    traitIds: [...run.traitIds || []],
     removedSkills: Object.keys(run.innateReplacements || {}), rank: run.rank,
     tactics: playerTactics.map(id => adapters.resolve('tactic', id)?.nativeId).filter(Boolean),
     cards: run.cards.map(id => adapters.cardSpec(id)).filter(Boolean),
@@ -177,7 +182,7 @@ export default function () {
     },
     package: {
       intro: '独立的山河图·诸侯伐董单人闯关模式。启用并重启后选择“山河图”。',
-      author: '本地扩展', version: '1.1.2',
+      author: '本地扩展', version: '1.2.0',
       character: { character: {}, translate: {} }, card: { card: {}, translate: {}, list: [] }, skill: { skill: {}, translate: {} },
     },
   };

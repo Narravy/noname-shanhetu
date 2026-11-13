@@ -1,7 +1,7 @@
 import { nextCities, battlesForNode, eventsForNode, splitIds } from './catalog.js';
 import { isExpeditionStartOnlyTactic } from './tactic-scope.js';
 import { grantRunSkill, ownedRewardSkillIds, validateRunSkills } from './run-skills.js';
-import { rankTraits } from './rank-traits.js';
+import { initializeTraitState, traitState as readTraitState, startRunTraits, changeTraits } from './character-trait-state.js';
 import { isForeignModeTactic, FOREIGN_MODE_TACTIC_REASON } from './foreign-mode-tactics.js';
 import { runMutationRows, mutationDisplay, fixedMutationIds, mutationPool, mutationReward } from './campaign-mutations.js';
 
@@ -38,9 +38,17 @@ export class Campaign {
     this.state = initialState();
     const saved = options.load?.();
     if (saved) this.state = this._validate(typeof saved === 'string' ? JSON.parse(saved) : clone(saved));
+    initializeTraitState(this.state, this.catalog);
   }
   get run() { return this.state.run; }
   get profile() { return this.state.profile; }
+  traitState(character, rank) { return readTraitState(this, character, rank); }
+  setTraitLock(payload) { return this._change(() => changeTraits(this, 'setTraitLock', payload)); }
+  refineTraits(payload) { return this._change(() => changeTraits(this, 'refineTraits', payload)); }
+  acceptTraits(payload) { return this._change(() => changeTraits(this, 'acceptTraits', payload)); }
+  discardTraitRoll(payload) { return this._change(() => changeTraits(this, 'discardTraitRoll', payload)); }
+  useInitialTraits(payload) { return this._change(() => changeTraits(this, 'useInitialTraits', payload)); }
+  useRefinedTraits(payload) { return this._change(() => changeTraits(this, 'useRefinedTraits', payload)); }
   difficultyAvailability(id) {
     const difficulty = this.catalog.indexes.difficulties.get(Number(id));
     if (!difficulty) return { unlocked: false, reason: '难度不存在' };
@@ -272,19 +280,24 @@ export class Campaign {
       this._checkLoadout(chosen);
       rank = Math.max(1, Math.min(5, integer(rank, 1)));
       const privilege = this.catalog.rules.GeneralRankPriv.find(row => row.rank === rank - 1) || {};
-      const traits = rankTraits(rank);
-      const bonusHp = integer(privilege.addHp) + traits.hp;
       this.run && (this.state.run = null);
+      const selectedTraits = startRunTraits(this, character, rank);
+      const traits = { hp: 0, startingCards: 0, draw: 0, slashCount: 0, armor: 0, armorGain: 0, handLimit: 0, damage: 0, ...selectedTraits.bonuses };
+      const baseMaxHp = Number(maxHp) + integer(privilege.addHp);
+      const traitMaxHp = Math.max(1, baseMaxHp + traits.hp);
+      traits.hp = traitMaxHp - baseMaxHp;
+      const bonusHp = integer(privilege.addHp) + traits.hp;
       this.state.run = {
         id: Date.now().toString(36) + '-' + (++this.profile.seed).toString(36),
         seed: (integer(seed, Date.now() ^ this.profile.seed) >>> 0) || 1,
-        character, difficulty, rank, hp: Number(hp) + bonusHp, maxHp: Number(maxHp) + bonusHp,
+        character, difficulty, rank, hp: Math.max(1, Math.min(traitMaxHp, Number(hp) + bonusHp)), maxHp: traitMaxHp,
+        traitIds: [...selectedTraits.ids], traitBonuses: traits,
         mutations: [], fixedMutations: fixedMutationIds(config), mutationVersion: 1,
         mutationChoicePending: !config.desperate && difficulty >= Number(this.catalog.rules.Common.seeddiff || 16),
         armyChoicePending: !!config.desperate,
         copper: 0, totalCopper: 0, cityId: 0, chapter: 1, month: 0, totalMonths: 0, accday: 0, nodeIndex: 0,
         skills: [], tactics: [], cards: [], equips: [], allies: [], skillSlots: integer(this.catalog.rules.Common.spellnum, 2), maxSkillSlots: integer(this.catalog.rules.Common.spellmax, 3),
-        stats: { startingCards: integer(privilege.addFirstCard) + traits.startingCards, draw: integer(privilege.addcard) + traits.draw, slashCount: integer(privilege.addsha) + traits.slashCount, armor: integer(privilege.addShield), armorGain: 0, handLimit: 0, damage: 0 },
+        stats: { startingCards: integer(privilege.addFirstCard) + traits.startingCards, draw: integer(privilege.addcard) + traits.draw, slashCount: integer(privilege.addsha) + traits.slashCount, armor: integer(privilege.addShield) + traits.armor, armorGain: traits.armorGain, handLimit: traits.handLimit, damage: traits.damage },
         rebirthAvailable: !!privilege.exSkills, completed: [], clearedCities: [], victories: 0, nodes: [], shops: {}, log: [], pending: null, rewardQueue: [], source: null, attributes: {}, settled: false,
       };
       if (!Number.isFinite(this.run.maxHp) || !Number.isFinite(this.run.hp) || !(this.run.maxHp > 0) || !(this.run.hp > 0)) throw new Error('武将体力配置无效');
@@ -1035,6 +1048,7 @@ export class Campaign {
         if (!Array.isArray(pending.choices) || pending.choices.some(choice => !Number.isInteger(choice.index) || run.tactics[choice.index] !== choice.itemId) || pending.resumePending && pending.resumePending.kind !== 'shop') throw new Error('移除战法记录无效');
       }
     }
+    initializeTraitState(state, this.catalog);
     return state;
   }
 }

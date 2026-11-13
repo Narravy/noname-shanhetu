@@ -115,7 +115,9 @@ export function applyMutationsToSpec(spec,{catalog,adapters,run}) {
       if(Number(row.pra1)===6)spec.firstActorIndex=Math.floor(random()*actors.length);
       if(Number(row.pra1)===7){spec.firstActorRule='highestHp';spec.firstActorIndex=actors.reduce((best,actor,index)=>actor.hp>actors[best].hp?index:best,0);}
       if([2,5].includes(Number(row.pra1))){
-        const actor=spec.player,owned=unique([...(hero?.skills||[]).filter(id=>!(actor.removedSkills||[]).includes(id)),...(actor.skills||[])]).filter(id=>!id.startsWith('sht_mutation_'));
+        // Character traits are a separate progression system, not removable
+        // character/reward skills in the mutation's random replacement pool.
+        const actor=spec.player,owned=unique([...(hero?.skills||[]).filter(id=>!(actor.removedSkills||[]).includes(id)),...(actor.skills||[])]).filter(id=>!id.startsWith('sht_mutation_')&&!id.startsWith('sht_trait_'));
         const removed=pick(owned,random);
         if(removed){actor.removedSkills=unique([...(actor.removedSkills||[]),removed]);actor.skills=(actor.skills||[]).filter(id=>id!==removed);actor.skillDetails=(actor.skillDetails||[]).filter(item=>item.nativeId!==removed);
           const change={seedId:row.seed,removed};

@@ -1,9 +1,9 @@
 {
   "name": "noname-shanhetu",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "private": true,
   "type": "module",
-  "description": "无名杀-山河图-1.1.2：诸侯伐董独立扩展源码",
+  "description": "无名杀-山河图-1.2.0：诸侯伐董独立扩展源码",
   "scripts": {
     "check": "node tools/check-source.mjs",
     "test": "node tools/check-source.mjs",

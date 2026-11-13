@@ -28,6 +28,7 @@ export function createCatalog(tables) {
     tree: tables['tactic-tree'] || tables.tree || [],
     enemyGroups: tables['enemy-groups'] || tables.enemyGroups || [],
     enemyReferences: tables['enemy-references'] || tables.enemyReferences || {},
+    characterTraits: tables['character-traits'] || tables.characterTraits || null,
     notes: manifest.notes || [],
     indexes: {},
   };
@@ -54,7 +55,7 @@ export function createCatalog(tables) {
 
 export async function loadCatalog(baseURL = new URL('../', import.meta.url).href) {
   const base = String(baseURL).replace(/\/?$/, '/');
-  const names = ['manifest', 'battles', 'events', 'tactics', 'skills', 'cards', 'tactic-tree', 'enemy-groups', 'enemy-references', 'tasks', 'endings', 'spells', 'rules', 'adventure-art', 'desperate'];
+  const names = ['manifest', 'battles', 'events', 'tactics', 'skills', 'cards', 'tactic-tree', 'enemy-groups', 'enemy-references', 'tasks', 'endings', 'spells', 'rules', 'adventure-art', 'desperate', 'character-traits'];
   const pairs = await Promise.all(names.map(async name => {
     const response = await fetch(base + 'data/' + name + '.json');
     if (!response.ok) throw new Error('读取山河图配置失败：' + name + '（' + response.status + '）');

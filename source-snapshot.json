@@ -1,5 +1,5 @@
 {
-  "version": "1.1.2",
+  "version": "1.2.0",
   "date": "2026-11-13",
   "files": [
     {
@@ -13,6 +13,11 @@
       "bytes": 1621
     },
     {
+      "path": "character-trait-view.css",
+      "sha256": "74d5861868ebd671fda2c482879fd61e3fc0439d56f390ac8c348c921f1dc3f8",
+      "bytes": 9736
+    },
+    {
       "path": "encounter-view.css",
       "sha256": "4386a55bfd543a390b3add55a34ec08adbf9a51f9eed60c1aabbeb6386f455b2",
       "bytes": 31279
@@ -24,12 +29,12 @@
     },
     {
       "path": "extension.js",
-      "sha256": "0663b6c610adf57be662defabc42b24abe284dbc6662792629a652241415d867",
-      "bytes": 10119
+      "sha256": "4257aa19977a40bd5dcb4ff25b6215727ccacc9b3e5df0f866b7f833ab3bef8d",
+      "bytes": 10576
     },
     {
       "path": "info.json",
-      "sha256": "8291ef9e3e9eb97b7cfe5439505652489c90fad4a794c47075b3e1033a002380",
+      "sha256": "32aa4e2f5e61d4af9634eb1deb458c940e1935b539887693e21a1943312447c4",
       "bytes": 126
     },
     {
@@ -79,8 +84,8 @@
     },
     {
       "path": "src/campaign.js",
-      "sha256": "3e1e22fe7378a296d3f8331c8c1c6b81c377d5946ea28351c9e2e718460c6c0a",
-      "bytes": 66007
+      "sha256": "2eeb73a10f2c131ed85d21ef92fb225d784d8d1183b148a13f02fb0e40678621",
+      "bytes": 67382
     },
     {
       "path": "src/card-view.js",
@@ -89,13 +94,28 @@
     },
     {
       "path": "src/catalog.js",
-      "sha256": "a2646cb3c8300d9f5b48dfb5a1e4a4eee38421a8f411280a3e2504a2a5245219",
-      "bytes": 5009
+      "sha256": "e800799405ecad9617630d4a22fee79943aaf9ff4db6c7bdd463b5445f080666",
+      "bytes": 5112
     },
     {
       "path": "src/character-portrait.js",
       "sha256": "80f345f1a36dabc7278f4cf3373e52876de2516ea9ab2fd66cfa103c872e03f3",
       "bytes": 6382
+    },
+    {
+      "path": "src/character-trait-effects.js",
+      "sha256": "9e7d8c86d860160f3e7b3e0de4fe7d3d356d21efe1d60d8419c99df985d21447",
+      "bytes": 30739
+    },
+    {
+      "path": "src/character-trait-state.js",
+      "sha256": "f6c0510dacd51df128c18213925c29ebf53e36c864ca9da9062d38073f563b9d",
+      "bytes": 13934
+    },
+    {
+      "path": "src/character-trait-view.js",
+      "sha256": "09682c49223acc56ef1c77755efb58ddb3a6f96413952a7714107b2e2b80a127",
+      "bytes": 14201
     },
     {
       "path": "src/currency-view.js",
@@ -199,13 +219,13 @@
     },
     {
       "path": "src/interface.js",
-      "sha256": "73d8eb3ef04a05b65763384b9358dfd0c5367565d003ed9c5c02b073815ec7dc",
-      "bytes": 22159
+      "sha256": "df7bd56aa51a2d478a02b92cc30900f12be14536ec732c75bb589cfed02bba76",
+      "bytes": 22299
     },
     {
       "path": "src/local-service.js",
-      "sha256": "22a022d9feb6032ec64b9e90a03c04e81efb56bbaff935c8874042f081109e73",
-      "bytes": 1692
+      "sha256": "b78783300ff7644c3c03c1b7219cab70b2155d34102fa160602c1f1630bede64",
+      "bytes": 1986
     },
     {
       "path": "src/motion-view.js",
@@ -224,8 +244,8 @@
     },
     {
       "path": "src/mutation-rules.js",
-      "sha256": "c97df0df099d1353d13ab61240ad16f649ef9f81e2e2b61dcd06012ab9d61a18",
-      "bytes": 12688
+      "sha256": "4405d79084bee9740f03838889b0511c5fce22a3fa542b210ef31066407fb4a3",
+      "bytes": 12873
     },
     {
       "path": "src/mutation-view.js",
@@ -269,8 +289,8 @@
     },
     {
       "path": "src/scene-view.js",
-      "sha256": "f1e69f3ede57ca18cfa59d1987599d7bb3822545bd1fd12da2237c0c8d080ce3",
-      "bytes": 31035
+      "sha256": "0ac2849aa8459329bb428ca82116b56d9769f24bb486a01443e47d25cde890ba",
+      "bytes": 31756
     },
     {
       "path": "src/skill-install.js",
@@ -309,8 +329,8 @@
     },
     {
       "path": "style.css",
-      "sha256": "9ccacbbc1063e2da3ddd6d2e305fb391afc2b8fe9ae40de81a6c6c3622945c43",
-      "bytes": 279
+      "sha256": "41a7cd8f3afea59825f3280da30362e8169e6477fc3cfa93569d1052d1962c53",
+      "bytes": 318
     },
     {
       "path": "tree-view.css",

@@ -5,6 +5,7 @@ import { innateSkillsForView } from './run-skills.js';
 import { difficultyForView, renderDifficulty } from './desperate-view.js';
 import { inspectCurrentEffects } from './mutation-view.js';
 import { bindDeveloperEntry } from './developer-entry.js';
+import { openCharacterTraits, backCharacterTraits, renderTraitCurrency, showCharacterTraitHelp } from './character-trait-view.js';
 export { renderDifficulty } from './desperate-view.js';
 
 const kindNames = { battle: '战役', event: '奇遇', camp: '营地', shop: '集市', reward: '奖励', route: '行军', ending: '结算', removeTactic: '涤净', mutation: '选择突变', army: '选择军备' };
@@ -71,6 +72,7 @@ function makePortraitInspectable(view, portrait, id, extra) {
 }
 function back(view) {
   if (view.menuOpen) { view.menuOpen = false; return; }
+  if (backCharacterTraits(view)) return;
   if (view.tab === 'tree' && view.closeTreeOverlay?.()) return;
   if (view.tab !== 'campaign') { view.tab = 'campaign'; return; }
   if (view.screen === 'select' && !view.campaign.run) { view.screen = 'home'; return; }
@@ -86,12 +88,12 @@ export function renderSceneHeader(view, stage) {
   const onMap = run && view.screen !== 'world';
   const header = el('header', 'sht-header sht-scene-header', null, stage);
   if (view.screen === 'select' && !run && view.tab === 'campaign') header.classList.add('sht-scene-header-select');
-  const title = view.tab === 'campaign' ? (onMap ? currentDifficulty(view)?.name : view.screen === 'select' ? '点将出征' : '诸侯伐董') : ({ tree: '山河册', glossary: '征程图鉴', help: '玩法说明', save: '征程存档' })[view.tab];
+  const title = view.tab === 'campaign' ? (onMap ? currentDifficulty(view)?.name : view.screen === 'select' ? '点将出征' : '诸侯伐董') : ({ tree: '山河册', traits: '特质', glossary: '征程图鉴', help: '玩法说明', save: '征程存档' })[view.tab];
   const heading = el('div', 'sht-scene-heading', null, header);
   const titleNode = el('span', '', title || '山河图', heading);
   if (view.tab === 'tree') bindDeveloperEntry(view, titleNode);
   else delete view.developerGesture;
-  view.button(heading, '?', () => { view.tab = 'help'; }, { className: 'sht-scene-help', title: '玩法说明' });
+  view.button(heading, '?', () => view.tab === 'traits' ? showCharacterTraitHelp(view) : (view.tab = 'help'), { className: 'sht-scene-help', title: '玩法说明' });
   if (onMap && view.tab === 'campaign') {
     const city = view.campaign.currentCity();
     const rule = view.catalog.rules.ChapterCS.find(x => Number(x.chapter) === Number(run.chapter)) || {};
@@ -114,7 +116,8 @@ export function renderSceneHeader(view, stage) {
     if (actions?.enforced) goalNode.title = `本章已探索${actions.used}次 / ${actions.limit}次${actions.bonus ? `（日行千里额外${actions.bonus}次）` : ''}`;
   }
   const resources = el('div', 'sht-resources', null, header);
-  if (run || view.tab === 'tree') {
+  if (view.tab === 'traits') renderTraitCurrency(view, resources);
+  else if (run || view.tab === 'tree') {
     const currency = el('span', 'sht-resource', null, resources);
     if (view.tab === 'tree') view.image(currency, view.asset('ui/rogueSeacon/roguelikeui_rogueSeacon_point.png'), '图册', 'sht-resource-icon');
     else copperIcon(view, currency, 'sht-resource-icon');
@@ -127,6 +130,8 @@ export function renderSceneHeader(view, stage) {
     for (const [id, name] of [['campaign', '征程'], ['tree', '山河册'], ['glossary', '图鉴'], ['help', '玩法'], ['save', '存档']]) {
       view.button(menu, name, () => { view.tab = id; view.menuOpen = false; }, { className: view.tab === id ? 'active' : '' });
     }
+    view.button(menu, '武将特质', () => openCharacterTraits(view), { className: view.tab === 'traits' ? 'active' : '' });
+    if (run) view.button(menu, '征程状态', () => { view.menuOpen = false; view.tab = 'campaign'; view.screen = 'map'; view.inventoryOpen = true; });
     if (run && !run.settled) view.button(menu, '结束本次征程', async () => {
       if (await view.confirm('本次获得的武将成长将清除，山河册保留。', { title: '结束本次征程', confirmText: '结束征程' })) {
         if (view.dispatch) view.dispatch('abandon'); else view.campaign.abandon();
@@ -201,6 +206,7 @@ export function renderOverworld(view, body) {
     view.screen = 'select';
   });
   iconButton(view, shortcuts, '山河册', 'ui/roguelikebigmap/bigmap_rogue_btn.png', () => { view.tab = 'tree'; });
+  iconButton(view, shortcuts, '武将特质', 'character-traits/smallmap_trait.png', () => openCharacterTraits(view));
   if (view.difficultyOpen) renderDifficulty(view);
 }
 
@@ -336,7 +342,7 @@ export function renderChapterMap(view, body) {
     view.encounterCollapsed = false;
   }, 'sht-map-shop');
   shop.disabled = !view.campaign.canOpenShop();
-  iconButton(view, scene, '征程状态', 'ui/roguelikebigmap/bigmap_lv_btn.png', () => { view.inventoryOpen = true; }, 'sht-map-status');
+  iconButton(view, scene, '武将特质', 'character-traits/smallmap_trait.png', () => openCharacterTraits(view, run.character), 'sht-map-traits');
   const effects = view.campaign.currentEffects?.() || [];
   if (effects.length) {
     const label = Number(run.difficulty) >= 100 ? '绝境效果' : '征程突变';

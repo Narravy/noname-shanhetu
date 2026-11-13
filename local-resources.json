@@ -1,5 +1,5 @@
 {
-  "version": "1.1.2",
+  "version": "1.2.0",
   "notice": "Inventory only. Third-party resource contents and redistribution rights are not included.",
   "files": [
     {
@@ -271,6 +271,166 @@
       "path": "assets/backgrounds/roguelike_talk_bg.png",
       "sha256": "7e12b2753aec0eba7d591eb32da980b6763e222ecd1077a9c3513fc01f0e4cd6",
       "bytes": 36177
+    },
+    {
+      "path": "assets/character-traits/generaldetail_bgstar.png",
+      "sha256": "e9021b3b06d85f8acaceea3595431f682afdd5397df7c59f1065c61271c96dd3",
+      "bytes": 9883
+    },
+    {
+      "path": "assets/character-traits/generaldetailbtn_tequan.png",
+      "sha256": "edab69b3cb21ea2d5b4e62aee57512275dd30ce15257c47d06e7beade809ef1a",
+      "bytes": 26574
+    },
+    {
+      "path": "assets/character-traits/manifest.json",
+      "sha256": "17b382851fddaf25a64e3ac5ba928c365d1c3136086a6ac55be70b1231afe70b",
+      "bytes": 29004
+    },
+    {
+      "path": "assets/character-traits/paiwei_star_new_1.png",
+      "sha256": "8619497787d9432d28f74650cc0dc7c0dae5f0f7259441ef4424098339db5646",
+      "bytes": 1272
+    },
+    {
+      "path": "assets/character-traits/paiwei_star_new_2.png",
+      "sha256": "3a5ab6900e2c9f3a3ccb3535747831aa0fae51dd5d6cff1d14587ed13a9b4581",
+      "bytes": 1650
+    },
+    {
+      "path": "assets/character-traits/pribtn_nrm.png",
+      "sha256": "78bfef0101659bfa16c563747e17cbed2d96b325439568280cf3d488e11682e9",
+      "bytes": 10551
+    },
+    {
+      "path": "assets/character-traits/secbtn_recv.png",
+      "sha256": "aa001329fb41f4485ef3b531be7ec8dba4191a69a8699959b1f7f03c5ad26447",
+      "bytes": 6458
+    },
+    {
+      "path": "assets/character-traits/smallmap_trait.png",
+      "sha256": "d2431ec478ccce841e5d0654529e508884804bca9f31d7c78a93f57cd2c0c527",
+      "bytes": 8098
+    },
+    {
+      "path": "assets/character-traits/soul.png",
+      "sha256": "1f483e016f32883ddc04c92c8d9556724d87aabae70036a09289ef0f1146feb1",
+      "bytes": 25489
+    },
+    {
+      "path": "assets/character-traits/traitrefined_bg.png",
+      "sha256": "2b2e2fe58ad9d866222ac554f0fbdf2959bfa4e4e544b20e7bef04a57dc6d54f",
+      "bytes": 1399806
+    },
+    {
+      "path": "assets/character-traits/traitrefined_bg2.png",
+      "sha256": "bcd1c8256138f70f34ca3ceabdd8454e8ac1f575a9560f113339a92bb220b99d",
+      "bytes": 1126733
+    },
+    {
+      "path": "assets/character-traits/traitrefined_check_bg.png",
+      "sha256": "aeb405aefc17824cf62689219cebe37054f7abd7b0818f367d112c54a1241761",
+      "bytes": 558
+    },
+    {
+      "path": "assets/character-traits/traitrefined_check_get.png",
+      "sha256": "c5a3e10683de6a353d6c4a222cdcadf927453ee99e70d53d103ff0b2511a73f8",
+      "bytes": 2760
+    },
+    {
+      "path": "assets/character-traits/traitrefined_chuanshuo.png",
+      "sha256": "06963a0f335f4a90de20fdcf91e0fb419c97fffccec03b0a45aa760a1394082b",
+      "bytes": 4075
+    },
+    {
+      "path": "assets/character-traits/traitrefined_chuanshuo_bg.png",
+      "sha256": "976bc98fd24d3e854755a10f8ea53209eb88bc66e3ac5c5224ed1bbab94ee6de",
+      "bytes": 30758
+    },
+    {
+      "path": "assets/character-traits/traitrefined_dangqian_txt.png",
+      "sha256": "267bc709d72e43d2ba8128570e6b77623852621a7cbf18fc481fcae8ff63c36c",
+      "bytes": 27933
+    },
+    {
+      "path": "assets/character-traits/traitrefined_dis_lock.png",
+      "sha256": "68feb3df26ec57761d50da5db615996e052e157505ec9b540e812dd8bcfbb406",
+      "bytes": 896
+    },
+    {
+      "path": "assets/character-traits/traitrefined_erjie.png",
+      "sha256": "5e8d13342d0768d0d5ec2b4791ac2d6be0b4612169454da8fe422808abde9159",
+      "bytes": 6187
+    },
+    {
+      "path": "assets/character-traits/traitrefined_genghuan_gerenal.png",
+      "sha256": "b3cdc914c6972026e13bd354a5515fa11ce21a2b0be385a64a4c6ac80c79be10",
+      "bytes": 9364
+    },
+    {
+      "path": "assets/character-traits/traitrefined_jieguo_txt.png",
+      "sha256": "face062ea8758dfac3378e730643be2f3d4468d9d22a670295c7dbf1d0377a93",
+      "bytes": 28527
+    },
+    {
+      "path": "assets/character-traits/traitrefined_sanjie.png",
+      "sha256": "5a1ed0e1573f2c089592e561077fada5d0e3d38b6033354d3f43c37e1218ddc3",
+      "bytes": 6311
+    },
+    {
+      "path": "assets/character-traits/traitrefined_sel_lock.png",
+      "sha256": "f539df5d1f61461c0bceccffadd7031a2636e962869b51b67085bd2758dc0715",
+      "bytes": 2006
+    },
+    {
+      "path": "assets/character-traits/traitrefined_shishi.png",
+      "sha256": "f50bb9f5ffeb1f69820bc37ff2d55120edb7dd07746ed8620ddaf62b8dda52d4",
+      "bytes": 3886
+    },
+    {
+      "path": "assets/character-traits/traitrefined_shishi_bg.png",
+      "sha256": "3ce18c363f91c24e23b4e9ef4985c590f1174f47f813ef680fc0af740ec07ce6",
+      "bytes": 30601
+    },
+    {
+      "path": "assets/character-traits/traitrefined_sijie.png",
+      "sha256": "43079e7b335b63048a317664545fbc98c24cb5a2386d9414bc793ec166dc62fe",
+      "bytes": 6432
+    },
+    {
+      "path": "assets/character-traits/traitrefined_wujie.png",
+      "sha256": "d996262481089518052348ff08d39db6d1a79ce9cc49ed43233be9af80684c9b",
+      "bytes": 6515
+    },
+    {
+      "path": "assets/character-traits/traitrefined_xianding.png",
+      "sha256": "b8df6b92c68845f0a4a346820d33c296c8480708eef2972bc2a452f9433280f7",
+      "bytes": 3946
+    },
+    {
+      "path": "assets/character-traits/traitrefined_xianding_bg.png",
+      "sha256": "3a2971e9917472c08bdd81dbe569f1a8599179f6fb75cde207fbe385d00cc02c",
+      "bytes": 30194
+    },
+    {
+      "path": "assets/character-traits/traitrefined_xilian_bg.png",
+      "sha256": "d712911bd5794e29ee12644cfc6662a81f21dff4ea0b3335c2a1f173d74b4ec5",
+      "bytes": 667
+    },
+    {
+      "path": "assets/character-traits/traitrefined_xiyou.png",
+      "sha256": "25d28f8bd6071dc57076353a97be7745ace6a729909dfcb7cb4d3e50801e8c71",
+      "bytes": 4029
+    },
+    {
+      "path": "assets/character-traits/traitrefined_xiyou_bg.png",
+      "sha256": "a4a61f3e07a45ed927666efca5e0469aa799c9afb1defd2b6ee0b677ec0c91ab",
+      "bytes": 24165
+    },
+    {
+      "path": "assets/character-traits/traitrefined_zidong_txt.png",
+      "sha256": "f8ed0fe00b143b1e6ea422fb727368b27097dc9fce34c0a477cc85c69d897ba5",
+      "bytes": 18276
     },
     {
       "path": "assets/desperate/bg_ex.png",
@@ -9711,6 +9871,16 @@
       "path": "data/cards.json",
       "sha256": "002ece34e16afe68a5d55ca327c0d5f8a074ff5b2e7c7cd58660eb4912759ffe",
       "bytes": 100983
+    },
+    {
+      "path": "data/character-traits-source.json",
+      "sha256": "6b31117af39d57a00732eb125eb206884cbc7c309d9c2e02e6262e6eb221d758",
+      "bytes": 5080
+    },
+    {
+      "path": "data/character-traits.json",
+      "sha256": "8728d5c53898a84d7a065e86d4604988238b50ed94647549fb648a39573c3896",
+      "bytes": 33906
     },
     {
       "path": "data/client-ui-source.json",

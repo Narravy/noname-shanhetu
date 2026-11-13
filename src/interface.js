@@ -11,6 +11,7 @@ import { LocalCampaignService } from './local-service.js';
 import { choose, confirm as confirmDialog, inspectItem } from './interaction-view.js';
 import { addMotion, beginMotions, finishMotions, disposeMotions } from './motion-view.js';
 import { isForeignModeTactic } from './foreign-mode-tactics.js';
+import { renderCharacterTraits } from './character-trait-view.js';
 
 const kinds = { battle: '战役', event: '奇遇', camp: '营地', shop: '集市', reward: '收获', route: '行军', ending: '征程结算', removeTactic: '涤净', mutation: '难度突变', army: '选择军备' };
 const quality = ['未定', '普通', '稀有', '史诗', '传说', '神话'];
@@ -184,6 +185,7 @@ export class CampaignUI {
       else if (this.screen === 'select') renderSelection(this, body);
       else renderOverworld(this, body);
     } else if (this.tab === 'tree') renderTree(this, body);
+    else if (this.tab === 'traits') renderCharacterTraits(this, body);
     else {
       const page = el('div', 'sht-scroll-page', null, body);
       if (this.tab === 'glossary') this.glossary(page);

@@ -2,7 +2,7 @@
 
 ## 项目代码
 
-本仓库扩展实现代码按 GNU General Public License version 3 发布，完整文本见 `LICENSE`。公开版本保留了 1.1.2 的所有扩展 JavaScript 和 CSS 文件；`source-snapshot.json` 记录其发布时的校验值。仓库管理、校验和装配工具与说明文档同样按 GPL-3.0-only 提供。上游已有版权及许可通知继续有效。
+本仓库扩展实现代码按 GNU General Public License version 3 发布，完整文本见 `LICENSE`。公开版本保留了 1.2.0 的所有扩展 JavaScript 和 CSS 文件；`source-snapshot.json` 记录其发布时的校验值。仓库管理、校验和装配工具与说明文档同样按 GPL-3.0-only 提供。上游已有版权及许可通知继续有效。
 
 **禁止商用是项目倡议，不是许可证限制。** 项目维护者希望代码用于非商业学习与交流，不支持售卖或商业运营；这一愿望不改变 GPL 已授予的权利，不构成禁止 GPL 代码商业使用的附加条款，也不能替代第三方权利人的授权。
 
