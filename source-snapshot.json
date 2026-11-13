@@ -1,0 +1,321 @@
+{
+  "version": "1.1.2",
+  "date": "2026-11-13",
+  "files": [
+    {
+      "path": "base-ui.css",
+      "sha256": "b594888a17b0b762af0052d3fd50d31890fdb57aa2e9b7d5f8479384e20e2cf2",
+      "bytes": 24966
+    },
+    {
+      "path": "battle-card-art.css",
+      "sha256": "8a6150b5cc1273242e367b91ab2639f4e28214d7b1b7ac3b837d9bbbffe456af",
+      "bytes": 1621
+    },
+    {
+      "path": "encounter-view.css",
+      "sha256": "4386a55bfd543a390b3add55a34ec08adbf9a51f9eed60c1aabbeb6386f455b2",
+      "bytes": 31279
+    },
+    {
+      "path": "enemy-inspect.css",
+      "sha256": "0f0d369e5c2d812df9da1b955d0b344c140e6056bb41801144f0cfabb1730a61",
+      "bytes": 3360
+    },
+    {
+      "path": "extension.js",
+      "sha256": "0663b6c610adf57be662defabc42b24abe284dbc6662792629a652241415d867",
+      "bytes": 10119
+    },
+    {
+      "path": "info.json",
+      "sha256": "8291ef9e3e9eb97b7cfe5439505652489c90fad4a794c47075b3e1033a002380",
+      "bytes": 126
+    },
+    {
+      "path": "interaction-view.css",
+      "sha256": "89577148cf6e02ff99bcd81b7658b211611b406d8a5192da13e48158d20e9f46",
+      "bytes": 2713
+    },
+    {
+      "path": "mutation-view.css",
+      "sha256": "2846bf9177ade0f4dfb739dc2cb52f4be7d412d451e162c457b80eb12313bc89",
+      "bytes": 6201
+    },
+    {
+      "path": "ol-portrait.css",
+      "sha256": "df45e14f1e93c37ec42de9521653b12d27e8c1b6304a21f660c77107b54e456b",
+      "bytes": 11612
+    },
+    {
+      "path": "original-assets.css",
+      "sha256": "208f54d94f07189e2b57e6852e6175aebdbd2e79f457a33bf8681a3eba013179",
+      "bytes": 1622
+    },
+    {
+      "path": "scene-view.css",
+      "sha256": "a9d8ff15a1da70e89e4e41b2df10ba49a6fa01b9dfc354cfa4924f14e856889c",
+      "bytes": 23521
+    },
+    {
+      "path": "src/adapters.js",
+      "sha256": "f395b06527ad7c3cd07dc7fc9e39d8f8247e630a63b0173fc26792a6ebc95bac",
+      "bytes": 12703
+    },
+    {
+      "path": "src/battle-card-art.js",
+      "sha256": "8ecaa8250c94702fae9f7087b1d3edad9da9e0ec901a95be51d44e7526cc8e06",
+      "bytes": 4827
+    },
+    {
+      "path": "src/battle.js",
+      "sha256": "334b9887d1bc14a23264b9ba11bd10707b1b40998065fac615a92124fd6a227b",
+      "bytes": 17257
+    },
+    {
+      "path": "src/campaign-mutations.js",
+      "sha256": "c07e09c6b720f1d3a36bb20bd94c0eb9fe342be5964fdb389d004d40dfcc8531",
+      "bytes": 1850
+    },
+    {
+      "path": "src/campaign.js",
+      "sha256": "3e1e22fe7378a296d3f8331c8c1c6b81c377d5946ea28351c9e2e718460c6c0a",
+      "bytes": 66007
+    },
+    {
+      "path": "src/card-view.js",
+      "sha256": "4867b4fb4be364d869381e4831b2b36f628e739ebdfde680344451e8048e5854",
+      "bytes": 4805
+    },
+    {
+      "path": "src/catalog.js",
+      "sha256": "a2646cb3c8300d9f5b48dfb5a1e4a4eee38421a8f411280a3e2504a2a5245219",
+      "bytes": 5009
+    },
+    {
+      "path": "src/character-portrait.js",
+      "sha256": "80f345f1a36dabc7278f4cf3373e52876de2516ea9ab2fd66cfa103c872e03f3",
+      "bytes": 6382
+    },
+    {
+      "path": "src/currency-view.js",
+      "sha256": "e743ba5382b3593a7535ebc1e3a0c39b1516b1cfe01a2212f4d539c892c3c8e4",
+      "bytes": 888
+    },
+    {
+      "path": "src/deck.js",
+      "sha256": "5b401aefb64b1cc924fd2afb1b516574e991cb7ed77aaec6e0269f7a6bfa2981",
+      "bytes": 4575
+    },
+    {
+      "path": "src/desperate-view.js",
+      "sha256": "af9ae58cb61e46650eee53f50a792453d8c07604849059af3bd14541359a4be9",
+      "bytes": 5672
+    },
+    {
+      "path": "src/desperate.js",
+      "sha256": "099cb9dad2d31e4fe16045fd55c8ea978ef1571897e96c12bbc22fe0f9d2c5d8",
+      "bytes": 2927
+    },
+    {
+      "path": "src/developer-entry.js",
+      "sha256": "a01c563cb7f77800cec10a23199e7dae1bd60ed520456f1511adf2c3c8a122f3",
+      "bytes": 1127
+    },
+    {
+      "path": "src/encounter-view.js",
+      "sha256": "e8db05087c05ff599a50c5f58990a872493e129372dd10234a75fb14b4765aeb",
+      "bytes": 34070
+    },
+    {
+      "path": "src/enemy-art-manifest.js",
+      "sha256": "918588185c5a6382f87bcdbb5198fa051ab9bac77759ca0e424117cb58aa61ee",
+      "bytes": 50946
+    },
+    {
+      "path": "src/enemy-combat-skills.js",
+      "sha256": "a21c76301bbc4cc0c35c4528b69342f4e6cf33a1467524b17eb389d9979d75a4",
+      "bytes": 17259
+    },
+    {
+      "path": "src/enemy-details.js",
+      "sha256": "708400ed9dc5d9f5b1c89640714d066450366e6ea9fcd65ae25a98b0dcbf1431",
+      "bytes": 1643
+    },
+    {
+      "path": "src/enemy-growth.js",
+      "sha256": "35c28ee7979f65fcca94424b7287081c6a0d98ac1e1810d394aebe84887e2b45",
+      "bytes": 6409
+    },
+    {
+      "path": "src/enemy-inspect-view.js",
+      "sha256": "1d080875f749ef6b6bace308d127cfbff7da6d24b07f28392d130ac61ea05e77",
+      "bytes": 8715
+    },
+    {
+      "path": "src/enemy-passive-skills.js",
+      "sha256": "0a81af4ebf308d740d61f306e38fb301948e718d5ff911dce352571d31954ae4",
+      "bytes": 16605
+    },
+    {
+      "path": "src/enemy-reactive-skills.js",
+      "sha256": "883f377ebe008393a42665fa046657dd4cde64ef009c06125fa60889014bed87",
+      "bytes": 16058
+    },
+    {
+      "path": "src/enemy-skills.js",
+      "sha256": "da4cab2ca0f17a0835d2740e9806c95635f694f96e9bd4fe87269026e196c870",
+      "bytes": 1831
+    },
+    {
+      "path": "src/extra-cards.js",
+      "sha256": "c94c401f571484fc62bb85e2bf0675e627109885ee186e3163d155ce002118f1",
+      "bytes": 14630
+    },
+    {
+      "path": "src/extra-reward-skills.js",
+      "sha256": "729adbf5894ab7f77cd938a12747ebd0b1d2be5446022bd108ed404de7aa8fbf",
+      "bytes": 13246
+    },
+    {
+      "path": "src/extra-skills.js",
+      "sha256": "4ff65277e49a465f20b87a442ca4b3c5cb25d0344b1162210aae971c654d29ac",
+      "bytes": 11293
+    },
+    {
+      "path": "src/extra-tactics.js",
+      "sha256": "89ad7cd9852e6fdb8b8d9c86aa2697be225153ab7e2634679d2736bcf8a79bef",
+      "bytes": 19090
+    },
+    {
+      "path": "src/foreign-mode-tactics.js",
+      "sha256": "8a1bc9bcb0957ef739556d9ca2b3203deed8332e9dbe639a9a828531a482c51f",
+      "bytes": 957
+    },
+    {
+      "path": "src/interaction-view.js",
+      "sha256": "c2529f5ff1d7a176319cb2189b32f2a07f004f91c536ef4256f86525639ab79b",
+      "bytes": 5932
+    },
+    {
+      "path": "src/interface.js",
+      "sha256": "73d8eb3ef04a05b65763384b9358dfd0c5367565d003ed9c5c02b073815ec7dc",
+      "bytes": 22159
+    },
+    {
+      "path": "src/local-service.js",
+      "sha256": "22a022d9feb6032ec64b9e90a03c04e81efb56bbaff935c8874042f081109e73",
+      "bytes": 1692
+    },
+    {
+      "path": "src/motion-view.js",
+      "sha256": "db163ce18379718c04fa476bc5263cfcc243b0395a960d3cf07ecb2b05def178",
+      "bytes": 12420
+    },
+    {
+      "path": "src/mutation-battle.js",
+      "sha256": "2582fa42ba11898b3746228d2ef3642ddecc8b583992a610ecce779c6bb3113c",
+      "bytes": 13647
+    },
+    {
+      "path": "src/mutation-cards.js",
+      "sha256": "1f1f857d49bd942977cbb47aaead64e16fffdbf60e9daa329082d863d20db677",
+      "bytes": 974
+    },
+    {
+      "path": "src/mutation-rules.js",
+      "sha256": "c97df0df099d1353d13ab61240ad16f649ef9f81e2e2b61dcd06012ab9d61a18",
+      "bytes": 12688
+    },
+    {
+      "path": "src/mutation-view.js",
+      "sha256": "b8b4ff8c539b21baddff47e0f18dd38fd10b6851705838bdd323373ccfa57461",
+      "bytes": 4292
+    },
+    {
+      "path": "src/native-tactic-art.js",
+      "sha256": "c7cdea8f22f5cf0129b30728f5f475dcf190d287e6cc5b3288379a24b811e576",
+      "bytes": 8717
+    },
+    {
+      "path": "src/ol-portrait-view.js",
+      "sha256": "230a7b908989359ec6c5cc71d8f40e9534ca4e2d6e9af191095d3eac1fb7c452",
+      "bytes": 6868
+    },
+    {
+      "path": "src/portraits.js",
+      "sha256": "60e15b7c1c60124c56f57d12d6ee842766f34a4ba1a7fd7a4ccaae3572e4d523",
+      "bytes": 2220
+    },
+    {
+      "path": "src/rank-traits.js",
+      "sha256": "a8e9ea76371d6ca032393df6daff65e8c34b3987996bc3988cb168dff3a34261",
+      "bytes": 547
+    },
+    {
+      "path": "src/reward-goods.js",
+      "sha256": "6059258b91d4d98c39cdc125bfa0c72b9f75fa3f90fd9000df29d89bd7374a42",
+      "bytes": 8833
+    },
+    {
+      "path": "src/reward-preview-view.js",
+      "sha256": "5e9fc58499b0687bdabbba17bbd572fae81d52bd641be0ab509f3cb10b31960f",
+      "bytes": 1219
+    },
+    {
+      "path": "src/run-skills.js",
+      "sha256": "b0b79225404b5121cc7272e2567e56231e77493189de818f87514bd707b3d726",
+      "bytes": 2924
+    },
+    {
+      "path": "src/scene-view.js",
+      "sha256": "f1e69f3ede57ca18cfa59d1987599d7bb3822545bd1fd12da2237c0c8d080ce3",
+      "bytes": 31035
+    },
+    {
+      "path": "src/skill-install.js",
+      "sha256": "30b67db59d8673c3e3930616f8af310d0a404851d7b685ee3e0dfd399b90016b",
+      "bytes": 1974
+    },
+    {
+      "path": "src/tactic-art-manifest.js",
+      "sha256": "44cde0172ff82b4d4afce3caefebcf5f71afb898f92fcfc6c26ea7ed1475d066",
+      "bytes": 12534
+    },
+    {
+      "path": "src/tactic-scope.js",
+      "sha256": "b0d21292e457122731cbed91cefa679ca6ed9f61aac3fa095b971de07dbd4983",
+      "bytes": 791
+    },
+    {
+      "path": "src/tactic-view.js",
+      "sha256": "022687363ad72a1be9abba909729423dc1cb3f456a5688f906ae466e461ede9d",
+      "bytes": 1414
+    },
+    {
+      "path": "src/tree-view.js",
+      "sha256": "3602f80a6abe5d817e895ee4ba921870a50de5031b6c7e60c08a5d14097c3f1b",
+      "bytes": 29913
+    },
+    {
+      "path": "src/wiki-card-art.js",
+      "sha256": "aa80dfa384c407f076d1581a209f6361bcf14b451dcfded531cd5ab8972ee30f",
+      "bytes": 2482
+    },
+    {
+      "path": "src/wiki-card-data.js",
+      "sha256": "3cbbba52556da680be86453a8db901a2749f2bd1ccbce37841eb203b2e7b7f1d",
+      "bytes": 27032
+    },
+    {
+      "path": "style.css",
+      "sha256": "9ccacbbc1063e2da3ddd6d2e305fb391afc2b8fe9ae40de81a6c6c3622945c43",
+      "bytes": 279
+    },
+    {
+      "path": "tree-view.css",
+      "sha256": "c5c32c5428d025da594f7de4e89ae187663fe96215e26a493dd57c638ebff05f",
+      "bytes": 12573
+    }
+  ]
+}

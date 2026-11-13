@@ -1,0 +1,238 @@
+/* Encounter compositions measured against the supplied OL recording at1280×580.
+   The caller owns dialog placement/scaling; these scenes use the same canvas. */
+.sht-ol-encounter { position:relative; width:100%; color:#f4e2b3; font:18px/1.6 'SHT-Original-UI',KaiTi,STKaiti,serif; }
+.sht-ol-encounter .sht-button { font-family:'SHT-Original-UI',KaiTi,STKaiti,serif; }
+.sht-ol-encounter .sht-ol-confirm { display:inline-flex; align-items:center; justify-content:center; min-width:150px; min-height:44px; padding:7px 20px; color:#604a19; font:24px/1.2 'SHT-Original-UI',KaiTi,STKaiti,serif; border:1px solid #c8a333; border-image:none; border-radius:2px; background:linear-gradient(#e8c64e,#f8e78a,#dfbd40); box-shadow:inset 0 0 0 3px #f5dc6b99,0 2px 5px #1f160888; }
+.sht-ol-encounter .sht-ol-confirm:disabled { opacity:.55; filter:grayscale(.55); cursor:default; }
+.sht-ol-encounter .sht-button:focus-visible { outline:2px solid #ffe47c; outline-offset:4px; }
+
+/* Rewards float directly over the dimmed map, without a surrounding paper box. */
+.sht-ol-choice-scene { display:flex; flex-direction:column; align-items:center; height:530px; padding:0 36px 10px; background:transparent; }
+.sht-ol-choice-scene[data-encounter-kind="camp"] { height:580px; }
+.sht-ol-choice-scene .sht-ol-floating-title { position:relative; isolation:isolate; flex-shrink:0; display:flex; align-items:center; justify-content:center; width:349px; height:112px; padding-top:20px; margin:0; color:#fff0c6; font:30px/1.2 'SHT-Original-UI',KaiTi,STKaiti,serif; text-shadow:0 2px 3px #3c250e; }
+.sht-ol-floating-title::before { content:''; position:absolute; inset:0; z-index:-1; background:url('assets/ui/rogueawardselect/award_tiitle_bg.png') center calc(50% + 10px)/210px 116px no-repeat; opacity:.2; }
+.sht-ol-floating-title::after { content:''; position:absolute; inset:-6px 0; z-index:-1; background:url('assets/ui/rogueawardselect/award_tiitle_light.png') center/250px auto no-repeat; opacity:.8; }
+.sht-ol-choice-subtitle { flex-shrink:0; margin:-2px 0 12px!important; font:18px/1.4 'SHT-Original-UI',KaiTi,STKaiti,serif; text-align:center; color:#ffebbd; }
+.sht-ol-choice-row { flex:1; min-height:0; display:flex; align-items:stretch; justify-content:safe center; gap:40px; width:100%; max-width:1100px; padding:9px 8px 12px; overflow-x:auto; overflow-y:hidden; scrollbar-width:thin; scrollbar-color:#b3934e #33271766; }
+.sht-ol-choice-row::-webkit-scrollbar { height:5px; }
+.sht-ol-choice-row::-webkit-scrollbar-thumb { background:#b3934e; }
+.sht-ol-choice-card,.sht-ol-shop-card { --sht-ol-card-art:url('assets/ui/roguecommon/rogue_award_quality_bg_1.png'); position:relative; border:0; border-image:none; border-radius:0; background:var(--sht-ol-card-art) center/100% 100% no-repeat; color:#4e4029; box-shadow:none; }
+.sht-ol-choice-card { display:flex; flex-direction:column; align-items:stretch; justify-content:flex-start; flex:0 0 230px; width:230px; min-width:230px; height:325px; min-height:325px; padding:0 16px 20px; gap:0; text-align:center; }
+.sht-ol-choice-card:disabled { border-image:none; opacity:.6; }
+.sht-ol-choice-card:hover:not(:disabled) { filter:brightness(1.06); }
+.sht-ol-choice-card.sht-ol-chosen { filter:none; box-shadow:0 0 0 3px #ffe86e,0 0 12px 5px #ffe24b99; }
+.sht-ol-choice-card.sht-ol-chosen::after { content:'◆'; position:absolute; left:50%; bottom:-16px; transform:translateX(-50%); color:#ffdf5d; font-size:20px; text-shadow:0 0 5px #fff3ab; }
+.sht-ol-quality-2 { --sht-ol-card-art:url('assets/ui/roguecommon/rogue_award_quality_bg_2.png'); }
+.sht-ol-quality-3 { --sht-ol-card-art:url('assets/ui/roguecommon/rogue_award_quality_bg_3.png'); }
+.sht-ol-quality-4 { --sht-ol-card-art:url('assets/ui/roguecommon/rogue_award_quality_bg_4.png'); }
+.sht-ol-item-type { display:flex; align-items:center; justify-content:center; gap:6px; height:30px; min-height:30px; color:#f5e6bf; font:17px/1 'SHT-Original-UI',KaiTi,STKaiti,serif; }
+.sht-ol-item-type .sht-item-icon { width:18px; height:18px; filter:none; }
+.sht-ol-item-content { display:flex; flex-direction:column; align-items:center; flex:1; min-height:0; padding:20px 8px 0; }
+.sht-ol-item-content .sht-ol-skill-name { display:block; min-width:90px; margin:10px 0 24px; padding:1px 12px; background:#93866c; color:#f9e8c1; font:23px/1.25 'SHT-Original-UI',KaiTi,STKaiti,serif; font-weight:normal; }
+.sht-ol-item-description { min-height:0; width:100%; margin:0!important; overflow:auto; color:#493b27; font:19px/1.75 'SHT-Original-UI',KaiTi,STKaiti,serif; text-align:left; scrollbar-width:thin; scrollbar-color:#b3934e88 transparent; }
+.sht-ol-item-description::-webkit-scrollbar { width:4px; }
+.sht-ol-item-description::-webkit-scrollbar-track { background:transparent; }
+.sht-ol-item-description::-webkit-scrollbar-thumb { background:#b3934e88; border-radius:2px; }
+.sht-ol-item-emblem { display:flex; align-items:center; justify-content:center; width:88px; height:88px; flex-shrink:0; margin:2px auto 14px; background:url('assets/ui/roguecommon/rogue_zhanfa_bg_1.png') center/contain no-repeat; }
+.sht-ol-emblem-2 { background-image:url('assets/ui/roguecommon/rogue_zhanfa_bg_2.png'); }
+.sht-ol-emblem-3 { background-image:url('assets/ui/roguecommon/rogue_zhanfa_bg_3.png'); }
+.sht-ol-emblem-4 { background-image:url('assets/ui/roguecommon/rogue_zhanfa_bg_4.png'); }
+.sht-ol-item-emblem .sht-item-icon,.sht-ol-emblem-icon { width:45px; height:45px; filter:sepia(.5); object-fit:contain; }
+.sht-ol-copper .sht-ol-emblem-icon { filter:none; }
+.sht-ol-item-name { margin:4px 0 12px; font:22px/1.4 'SHT-Original-UI',KaiTi,STKaiti,serif; }
+.sht-ol-current-stat { margin:2px 0 14px; color:#bd8e19; font:18px/1.2 'SHT-Original-UI',KaiTi,STKaiti,serif; }
+.sht-ol-choice-reason { font:12px/1.4 'Microsoft YaHei',sans-serif; color:#8b4128; }
+.sht-ol-copper-alternative { background:#534b3be8; border:1px solid #afa48c; color:#fff3c7; }
+.sht-ol-copper-alternative .sht-ol-item-type { visibility:hidden; }
+.sht-ol-copper-alternative .sht-ol-item-content { justify-content:center; padding-bottom:20px; }
+.sht-ol-copper-alternative .sht-ol-copper { width:48px; height:48px; margin:0 0 10px; background:none; }
+.sht-ol-copper-alternative strong { color:#fff2c7; font:28px/1.5 'SHT-Original-UI',KaiTi,STKaiti,serif; }
+.sht-ol-choice-footer { flex-shrink:0; display:flex; align-items:center; justify-content:center; width:100%; height:62px; padding-top:8px; }
+.sht-ol-item-content .sht-ol-card-art { position:relative; display:block; width:114px; height:160px; flex-shrink:0; margin:auto; object-fit:contain; }
+.sht-ol-card-art-name { font:20px 'SHT-Original-UI',KaiTi,STKaiti,serif; margin-top:10px; }
+
+/* lKt/lYi original 300×424 card surface. Positions below are relative to its
+   (7,4) origin; the same artwork and proportions are used by the shop. */
+.sht-ol-choice-card,.sht-ol-shop-card { --sht-reward-unit:.766666667px; --sht-reward-title:#cab583; --sht-reward-frame:url('assets/ui/roguecommon/rogue_zhanfa_bg_1.png'); --sht-reward-skill:url('assets/ui/roguecommon/rogue_skill_bg_1.png'); }
+.sht-ol-quality-2 { --sht-reward-title:#e6cce7; --sht-reward-frame:url('assets/ui/roguecommon/rogue_zhanfa_bg_2.png'); --sht-reward-skill:url('assets/ui/roguecommon/rogue_skill_bg_2.png'); }
+.sht-ol-quality-3 { --sht-reward-title:#f2e4c0; --sht-reward-frame:url('assets/ui/roguecommon/rogue_zhanfa_bg_3.png'); --sht-reward-skill:url('assets/ui/roguecommon/rogue_skill_bg_3.png'); }
+.sht-ol-quality-4 { --sht-reward-title:#ffd6c7; --sht-reward-frame:url('assets/ui/roguecommon/rogue_zhanfa_bg_4.png'); --sht-reward-skill:url('assets/ui/roguecommon/rogue_skill_bg_4.png'); }
+.sht-ol-item-type { position:absolute; inset:0; display:block; height:auto; min-height:0; pointer-events:none; color:var(--sht-reward-title); font-size:calc(32 * var(--sht-reward-unit)); }
+.sht-ol-item-type .sht-ol-award-type-icon { position:absolute; left:23%; top:.9434%; width:8.6667%; height:6.1321%; object-fit:contain; filter:none; }
+.sht-ol-item-type>span { position:absolute; left:34%; top:-.9434%; width:32%; height:10.3774%; display:flex; align-items:center; justify-content:center; white-space:nowrap; }
+[data-reward-kind="tactic"]>.sht-ol-item-content,[data-reward-kind="skill"]>.sht-ol-item-content,[data-reward-kind="copper"]>.sht-ol-item-content { position:absolute; inset:0; display:block; padding:0; }
+[data-reward-kind="tactic"] .sht-ol-item-emblem { position:absolute; left:28%; top:14.1509%; width:41.6%; height:29.717%; margin:0; background-image:var(--sht-reward-frame); }
+.sht-ol-item-emblem.sht-has-tactic-art { background-image:var(--sht-reward-frame)!important; }
+[data-reward-kind="tactic"] .sht-ol-item-emblem>.sht-tactic-picture,[data-reward-kind="tactic"] .sht-ol-item-emblem>.sht-item-icon { width:79.8077%; height:79.0476%; object-fit:contain; filter:none; }
+[data-reward-kind="tactic"] .sht-ol-item-name { position:absolute; left:7.3333%; top:45.283%; width:83.3333%; height:10.8491%; display:flex; align-items:center; justify-content:center; margin:0; font-size:calc(34 * var(--sht-reward-unit)); font-weight:normal; line-height:1.2; }
+[data-reward-kind="tactic"] .sht-ol-item-description { position:absolute; left:11%; top:56.8396%; width:78.3333%; height:38.4434%; font-size:calc(30 * var(--sht-reward-unit)); line-height:1.3; }
+[data-reward-kind="skill"] .sht-ol-item-content>.sht-ol-skill-name { position:absolute; left:27.3333%; top:22.1698%; width:44.6667%; height:10.8491%; min-width:0; display:flex; align-items:center; justify-content:center; margin:0; padding:0; background:var(--sht-reward-skill) center/100% 100% no-repeat; color:#fbf4e1; font-size:calc(32 * var(--sht-reward-unit)); font-weight:normal; line-height:1.2; }
+[data-reward-kind="skill"] .sht-ol-item-description { position:absolute; left:11.3333%; top:42.9245%; width:78.3333%; height:52.8302%; font-size:calc(30 * var(--sht-reward-unit)); line-height:1.3; }
+[data-reward-kind="copper"] { --sht-ol-card-art:url('assets/ui/roguecommon/rogue_award_quality_bg_1.png'); }
+[data-reward-kind="copper"] .sht-ol-copper { position:absolute; left:28.3333%; top:14.1509%; width:41.3333%; height:29.2453%; margin:0; background:url('assets/ui/roguecommon/rogue_zhanfa_bg_1.png') center/contain no-repeat; }
+[data-reward-kind="copper"] .sht-ol-copper>.sht-ol-emblem-icon { width:76.6129%; height:76.6129%; object-fit:contain; filter:none; }
+[data-reward-kind="copper"] .sht-ol-item-name { position:absolute; left:15%; top:60.3774%; width:70%; height:10.8491%; display:flex; align-items:center; justify-content:center; margin:0; color:#413320; font-size:calc(34 * var(--sht-reward-unit)); font-weight:normal; white-space:nowrap; line-height:1.2; }
+.sht-ol-choice-card.sht-ol-copper-alternative { border:0; background:none; border-image:url('assets/ui/rogueawardselect/rogue_award_quality_bg_0.png') 28 16 28 14 fill/21px 12px 21px 11px; }
+.sht-ol-copper-alternative .sht-ol-item-type { display:none; }
+.sht-ol-choice-card[data-forget-copper="true"] .sht-ol-copper { left:6%; top:34.6698%; width:26.6667%; height:18.8679%; background:none; }
+.sht-ol-choice-card[data-forget-copper="true"] .sht-ol-copper>.sht-ol-emblem-icon { width:100%; height:100%; }
+.sht-ol-choice-card[data-forget-copper="true"] .sht-ol-item-name { left:33.3333%; top:36.5566%; width:58.6667%; height:15.566%; justify-content:flex-start; color:#f2e4c0; font-size:calc(50 * var(--sht-reward-unit)); font-weight:bold; }
+.sht-ol-choice-card .sht-ol-choice-reason { position:absolute; left:8%; right:8%; bottom:3%; background:#f3e5cce8; }
+.sht-ol-choice-scene .sht-ol-confirm,.sht-ol-shop-product .sht-ol-confirm { border:0; border-image:none; border-radius:0; box-shadow:none; background:url('assets/reward/secbtn_nrm.png') center/100% 100% no-repeat; }
+.sht-ol-choice-card.sht-ol-chosen { box-shadow:none; }
+.sht-ol-choice-card.sht-ol-chosen::after { content:none; }
+.sht-ol-choice-card.sht-ol-chosen:not([data-motion]) { outline:2px solid #ffe86e; outline-offset:2px; }
+
+/* Battle preview is a wide scene band: story and rewards on the left, cards on the right. */
+.sht-ol-battle-scene { display:grid; grid-template-columns:360px minmax(0,1fr); grid-template-rows:minmax(0,1fr); align-items:stretch; gap:64px; min-height:430px; height:430px; padding:24px 180px 24px 195px; background:#917954 url('assets/backgrounds/roguelike_normal_bg.png') center/cover no-repeat; }
+.sht-ol-battle-boss { background-image:url('assets/backgrounds/roguelike_boss_bg.png'); }
+.sht-ol-battle-info { position:relative; display:flex; flex-direction:column; min-width:0; min-height:0; padding:16px 28px; background:#66573a5c; border:1px solid #ceba8238; box-shadow:inset 0 0 0 3px #c8b37920; }
+.sht-ol-battle-info h2 { flex-shrink:0; margin:0 0 14px; color:#f1deb2; font:28px/1.3 'SHT-Original-UI',KaiTi,STKaiti,serif; text-align:center; }
+.sht-ol-battle-story { flex:1; min-height:70px; overflow:auto; }
+.sht-ol-battle-story p { color:#f0deb5; font:17px/1.65 'SHT-Original-UI',KaiTi,STKaiti,serif; margin:0; letter-spacing:.08em; }
+.sht-ol-battle-badge { position:absolute; right:0; top:-18px; width:55px; height:68px; object-fit:contain; }
+.sht-ol-battle-reward-title { display:flex; align-items:center; justify-content:center; height:36px; min-height:36px; margin:12px 0 8px!important; background:url('assets/ui/roguefight/figjh_prizetxt_bg.png') center/100% 100% no-repeat; color:#f1deb2!important; font:21px 'SHT-Original-UI',KaiTi,STKaiti,serif!important; }
+.sht-ol-battle-rewards { display:flex; justify-content:center; gap:16px; flex-shrink:0; }
+.sht-ol-battle-prize { position:relative; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; width:90px; min-width:0; min-height:113px; color:#f1dbaf; }
+/* gCs/Gns goods preview: original 80px square, 70px icon, quality background. */
+.sht-reward-preview-icon { position:relative; display:flex; flex:none; align-items:center; justify-content:center; width:74px; height:74px; padding:0; border:0; background:url('assets/reward/shopitem_border_0.png') center/100% 100% no-repeat; filter:none; }
+.sht-reward-preview-icon[data-goods-quality='1'] { background-image:url('assets/reward/shopitem_border_1.png'); }
+.sht-reward-preview-icon[data-goods-quality='2'] { background-image:url('assets/reward/shopitem_border_2.png'); }
+.sht-reward-preview-icon[data-goods-quality='3'] { background-image:url('assets/reward/shopitem_border_3.png'); }
+.sht-reward-preview-icon>.sht-reward-preview-art { display:block; width:87.5%; height:87.5%; padding:0; border:0; object-fit:contain; filter:none; }
+.sht-reward-preview-icon>strong { position:absolute; bottom:4px; right:4px; font:18px/1 'SHT-Original-UI',KaiTi,STKaiti,serif; text-shadow:0 1px 2px #171007; }
+.sht-ol-battle-prize small { min-height:34px; font:16px/1.3 'SHT-Original-UI',KaiTi,STKaiti,serif; margin-top:5px; text-align:center; }
+.sht-ol-battle-opposing { display:flex; flex-direction:column; align-items:center; justify-content:space-between; min-width:0; min-height:0; padding:58px 0 0; }
+.sht-ol-enemy-line { display:flex; align-items:center; justify-content:safe center; gap:14px; width:100%; min-height:240px; overflow-x:auto; padding:4px; }
+.sht-ol-fighter-wrap { display:flex; flex-direction:column; align-items:center; width:145px; flex:0 0 145px; }
+.sht-ol-fighter { position:relative; width:139px; height:214px; border:2px solid #d0b379; border-radius:3px; background:#362919 url('assets/mobile-ui/portrait-back.png') center/cover no-repeat; box-shadow:0 3px 8px #17120ccc; overflow:hidden; }
+.sht-ol-fighter-art { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; }
+.sht-ol-fighter-ribbon { position:absolute; left:0; top:0; bottom:25px; display:flex; flex-direction:column; align-items:center; width:24px; padding:3px 0; background:#483721b3; color:#fff1c9; border-right:1px solid #dac47b77; }
+.sht-ol-fighter-ribbon small { font:17px/1 'SHT-Original-UI',KaiTi,STKaiti,serif; color:#b1cf80; }
+.sht-ol-fighter-ribbon strong { writing-mode:vertical-rl; font:17px/1.15 'SHT-Original-UI',KaiTi,STKaiti,serif; padding-top:6px; letter-spacing:.07em; }
+.sht-ol-fighter-health { position:absolute; left:3px; bottom:24px; display:flex; flex-direction:column; gap:2px; }
+.sht-ol-fighter-health i { display:block; width:10px; height:13px; border-radius:50%; border:1px solid #56602a; background:#484836; box-shadow:inset 1px 1px 2px #ccc6; }
+.sht-ol-fighter-health i.sht-ol-hp-full { background:linear-gradient(115deg,#d9eea6,#61a82a 45%,#30550e); border-color:#91bf47; }
+.sht-ol-fighter-hp { position:absolute; bottom:0; left:1px; color:#fff9df; font:20px/1.1 'SHT-Original-UI',KaiTi,STKaiti,serif; text-shadow:1px 1px 2px #000; }
+.sht-ol-fighter-armor { position:absolute; right:0; top:26px; padding:1px 3px; background:#5f4437cc; color:#f5ddbd; font:14px/1.2 'SHT-Original-UI',KaiTi,STKaiti,serif; }
+.sht-ol-fighter-skills { max-width:145px; margin-top:4px; color:#f2deac; font:13px/1.3 'SHT-Original-UI',KaiTi,STKaiti,serif; text-align:center; }
+.sht-ol-battle-warnings { max-width:390px; color:#e0cca5; font:11px/1.4 'Microsoft YaHei',sans-serif; max-height:70px; overflow:auto; margin:4px 0 8px; }
+.sht-ol-battle-warnings summary { cursor:pointer; }
+.sht-ol-battle-warnings p { margin:4px 0; }
+
+/* The market is its own scene, with the original merchant and side categories. */
+.sht-ol-shop-scene { height:580px; min-height:580px; overflow:hidden; background:#826747 url('assets/backgrounds/roguelike_market_bg.png') center/cover no-repeat; }
+.sht-ol-merchant { position:absolute; left:270px; top:-6px; width:625px; height:422px; object-fit:contain; pointer-events:none; }
+.sht-ol-shop-head { position:absolute; top:0; left:0; right:0; z-index:3; display:flex; align-items:center; gap:18px; height:54px; padding:4px 55px; background:#21180d55; }
+.sht-ol-shop-head h2 { margin:0; font:27px 'SHT-Original-UI',KaiTi,STKaiti,serif; color:#f5e2b2; }
+.sht-ol-shop-balance { display:flex; align-items:center; gap:10px; margin-left:auto; min-width:120px; padding:3px 12px; background:#2b21165c; font:24px 'SHT-Original-UI',KaiTi,STKaiti,serif; color:#f5e2b2; }
+.sht-ol-shop-balance .sht-ol-prize-icon { width:32px; height:32px; }
+.sht-ol-shop-return { color:#f6dfa2; min-width:100px; background:transparent; border:0; border-image:none; font:18px 'SHT-Original-UI',KaiTi,STKaiti,serif; }
+.sht-ol-shop-tabs { position:absolute; top:76px; left:62px; width:182px; display:flex; flex-direction:column; gap:16px; }
+.sht-ol-shop-tabs .sht-button { width:100%; min-height:52px; padding:8px; font:23px 'SHT-Original-UI',KaiTi,STKaiti,serif; color:#f3ddad; border:0; border-image:url('assets/ui/roguecommon/grab_btn_nrm.png') 12 fill/8px; background:transparent; }
+.sht-ol-shop-tabs .sht-ol-tab-selected { color:#6c511f; border-image:none; background:linear-gradient(#e9c84f,#f7e694,#dcbb43); box-shadow:inset 0 0 0 3px #f6dc6f88,0 0 8px #dbc56966; }
+.sht-ol-shop-owner { position:absolute; top:66px; left:750px; width:345px; padding:0 18px 8px; color:#ebd49d; background:#4e3b1e44; }
+.sht-ol-shop-owner strong { display:inline-block; margin-bottom:6px; padding:1px 15px; font:24px 'SHT-Original-UI',KaiTi,STKaiti,serif; background:url('assets/ui/roguejishi/jishi_name_bg.png') center/100% 100% no-repeat; }
+.sht-ol-shop-owner p { font:16px/1.5 'SHT-Original-UI',KaiTi,STKaiti,serif; margin:0; max-height:54px; overflow:auto; }
+.sht-ol-shop-stock { position:absolute; top:198px; left:290px; right:130px; height:310px; display:flex; gap:22px; align-items:start; overflow-x:auto; overflow-y:hidden; padding:4px 0 0; scrollbar-color:#bba16e #513d2a; }
+.sht-ol-shop-product { flex:0 0 184px; width:184px; }
+.sht-ol-shop-stock-expanded { top:182px; height:326px; }
+.sht-ol-shop-card { display:flex; flex-direction:column; width:184px; height:260px; padding:0 13px 10px; }
+.sht-ol-shop-card .sht-ol-item-type { font-size:17px; height:26px; min-height:26px; }
+.sht-ol-shop-card .sht-ol-item-content { padding:14px 4px 0; }
+.sht-ol-shop-card .sht-ol-card-art { width:100px; height:140px; }
+.sht-ol-shop-card .sht-ol-item-emblem { width:64px; height:64px; margin:0 auto 8px; }
+.sht-ol-shop-card .sht-ol-item-emblem .sht-item-icon { width:34px; height:34px; }
+.sht-ol-shop-card .sht-ol-item-name { font-size:19px; margin:0 0 6px; }
+.sht-ol-shop-card .sht-ol-skill-name { margin:4px 0 8px; font-size:19px; }
+.sht-ol-shop-card .sht-ol-item-description { font-size:15px; line-height:1.55; }
+.sht-ol-shop-card { --sht-reward-unit:.613333333px; }
+.sht-ol-shop-card[data-reward-kind="tactic"] .sht-ol-item-content,.sht-ol-shop-card[data-reward-kind="skill"] .sht-ol-item-content { padding:0; }
+.sht-ol-shop-card .sht-ol-item-type { font-size:calc(32 * var(--sht-reward-unit)); height:auto; }
+.sht-ol-shop-card[data-reward-kind="tactic"] .sht-ol-item-emblem { width:41.6%; height:29.717%; margin:0; }
+.sht-ol-shop-card[data-reward-kind="tactic"] .sht-ol-item-name { font-size:calc(34 * var(--sht-reward-unit)); margin:0; }
+.sht-ol-shop-card[data-reward-kind="skill"] .sht-ol-skill-name { font-size:calc(32 * var(--sht-reward-unit)); margin:0; }
+.sht-ol-shop-card .sht-ol-item-description { font-size:calc(30 * var(--sht-reward-unit)); line-height:1.3; }
+.sht-ol-shop-product .sht-ol-shop-price { width:100%; min-width:0; min-height:35px; margin-top:7px; padding:4px; font:20px 'SHT-Original-UI',KaiTi,STKaiti,serif; }
+.sht-ol-shop-price .sht-ol-price-coin { width:30px; height:30px; object-fit:contain; margin:-3px 6px -3px 0; }
+.sht-ol-sold { position:absolute; inset:0; display:block; background:#000; opacity:.55; pointer-events:none; }
+.sht-ol-shop-empty { padding:40px 20px; color:#f4dfb0; font-size:20px; }
+.sht-ol-shop-footer { position:absolute; left:0; right:0; bottom:0; height:65px; display:flex; align-items:center; gap:30px; padding:5px 70px; background:#6b2e2559; border-top:1px solid #d2b06b77; }
+.sht-ol-shop-refresh { display:flex; align-items:center; gap:7px; padding:0; min-width:190px; color:#f1d7a0; background:none; border:0; border-image:none; font:17px/1.25 'SHT-Original-UI',KaiTi,STKaiti,serif; text-align:left; }
+.sht-ol-shop-refresh:disabled { border-image:none; }
+.sht-ol-refresh-icon { width:32px; height:32px; }
+.sht-ol-shop-footer small { margin:auto; color:#ecd7aa; font:17px 'SHT-Original-UI',KaiTi,STKaiti,serif; }
+.sht-ol-refresh-text>span { display:block; }
+.sht-ol-refresh-text .sht-copper-amount { display:inline-flex; }
+
+/* Source Bcs/Ucs and lYi keep descriptions scrollable inside their item cards. */
+.sht-ol-physical-description { flex:0 1 76px; margin-top:10px!important; font-size:15px; line-height:1.5; }
+.sht-ol-shop-card .sht-ol-physical-description { flex-basis:48px; margin-top:6px!important; font-size:12px; line-height:1.4; }
+.sht-ol-shop-product { position:relative; }
+.sht-ol-shop-card[role="button"] { cursor:pointer; }
+.sht-ol-shop-card[role="button"]:focus-visible { outline:2px solid #ffe47c; outline-offset:2px; }
+.sht-ol-shop-disabled { position:absolute; left:0; right:0; bottom:45px; padding:3px; background:#463524dd; color:#ffe4ab; text-align:center; font:14px/1.3 'SHT-Original-UI',KaiTi,STKaiti,serif; }
+.sht-ol-shop-owner p,.sht-ol-shop-refresh span { white-space:pre-line; }
+.sht-ol-shop-owner p { max-height:92px; }
+.sht-ol-empty { margin:auto; color:#efdfb8; text-align:center; }
+
+/* kcs/xVi: a story area above a horizontal row of individually actionable options.
+   A missing Showrole image uses the same row at full width, without a substitute actor. */
+.sht-ol-adventure-scene { height:580px; overflow:hidden; }
+.sht-ol-event-actor { position:absolute; left:30px; top:42px; width:580px; height:580px; object-fit:contain; pointer-events:none; }
+.sht-ol-event-heading { position:absolute; left:220px; top:499px; width:226px; min-height:40px; margin:0; display:flex; align-items:center; justify-content:center; color:#f2e4c0; font:29px/1.3 'SHT-Original-UI',KaiTi,STKaiti,serif; background:url('assets/ui/rogueadventureselect/select_title_bg.png') center/100% 100% no-repeat; }
+.sht-ol-event-story { position:absolute; left:420px; top:58px; width:620px; height:85px; padding:13px 28px; background:url('assets/ui/roguelikebigmap/roguelike_chat_bg.png') center/100% 100% no-repeat; overflow:auto; color:#d1b877; scrollbar-width:thin; }
+.sht-ol-event-story p { margin:0; white-space:pre-line; font:18px/1.6 'SHT-Original-UI',KaiTi,STKaiti,serif; }
+.sht-ol-event-options { position:absolute; left:470px; top:148px; width:700px; height:360px; display:flex; gap:19px; align-items:stretch; justify-content:safe center; overflow-x:auto; overflow-y:hidden; scrollbar-width:thin; scrollbar-color:#b3934e #33271766; padding:4px 4px 9px; }
+.sht-ol-event-option { position:relative; display:flex; flex-direction:column; align-items:center; flex:0 0 220px; width:220px; height:345px; padding:15px 20px 12px; background:url('assets/ui/rogueadventureselect/select_info_bg.png') center/100% 100% no-repeat; color:#514020; }
+.sht-ol-event-option h3 { width:100%; flex:0 0 36px; display:flex; align-items:center; justify-content:center; margin:0; font:19px/1.2 'SHT-Original-UI',KaiTi,STKaiti,serif; text-align:center; }
+.sht-ol-event-picture { min-height:0; flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:7px; }
+.sht-ol-event-picture>span { font:16px/1.25 'SHT-Original-UI',KaiTi,STKaiti,serif; text-align:center; }
+.sht-ol-event-fight,.sht-ol-event-item-icon { width:68px; height:68px; object-fit:contain; }
+.sht-ol-event-tactic { width:88px; height:88px; object-fit:contain; }
+.sht-ol-event-card { width:90px; height:126px; }
+.sht-ol-event-picture .sht-ol-fighter-wrap { transform:scale(.63); transform-origin:center; margin:-44px 0; }
+.sht-ol-event-description { flex:0 1 50px; min-height:0; max-height:50px; width:100%; margin:5px 0!important; overflow:auto; scrollbar-width:thin; font:16px/1.5 'SHT-Original-UI',KaiTi,STKaiti,serif; text-align:center; }
+.sht-ol-event-cost { flex-shrink:0; margin:4px 0 7px; color:#a65b15; font:18px/1.3 'SHT-Original-UI',KaiTi,STKaiti,serif; }
+.sht-ol-event-free { color:#1a7f0f; }
+.sht-ol-event-option .sht-ol-confirm { flex-shrink:0; min-width:120px; min-height:35px; padding:5px 12px; font-size:20px; }
+.sht-ol-option-disabled { filter:saturate(.25); }
+.sht-ol-event-reason { position:absolute; left:8px; right:8px; top:38%; padding:8px 5px; background:#534a3be8; color:#f4dfb1; text-align:center; font:14px/1.5 'Microsoft YaHei',sans-serif; }
+.sht-ol-event-help { position:absolute; left:475px; top:515px; width:690px; margin:0; color:#d1b877; text-align:center; font:19px/1.4 'SHT-Original-UI',KaiTi,STKaiti,serif; }
+.sht-ol-adventure-scene[data-has-actor="false"] .sht-ol-event-heading { top:24px; left:440px; width:400px; }
+.sht-ol-adventure-scene[data-has-actor="false"] .sht-ol-event-story { top:80px; left:90px; width:1100px; }
+.sht-ol-adventure-scene[data-has-actor="false"] .sht-ol-event-options { top:180px; left:90px; width:1100px; }
+.sht-ol-adventure-scene[data-has-actor="false"] .sht-ol-event-help { top:543px; left:90px; width:1100px; }
+
+/* bcs/kVi: select a city card, then explicitly enter the chosen route. */
+.sht-ol-route-scene { display:flex; flex-direction:column; align-items:center; height:580px; padding:50px 0 55px; }
+.sht-ol-route-heading { flex-shrink:0; margin:0 0 30px; color:#f2e4c0; font:29px/1.4 'SHT-Original-UI',KaiTi,STKaiti,serif; }
+.sht-ol-route-options { display:flex; align-items:flex-start; justify-content:safe center; gap:23px; width:746px; flex:1; min-height:0; padding:8px 5px 10px; overflow-x:auto; overflow-y:hidden; scrollbar-width:thin; scrollbar-color:#b3934e #33271766; }
+.sht-ol-route-card { position:relative; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; flex:0 0 216px; width:216px; height:290px; padding:8px 12px; gap:0; border:0; border-image:none; color:#514020; background:url('assets/ui/rogueselectmultiplelines/multiple_card_bg.png') center/100% 100% no-repeat; }
+.sht-ol-route-card.sht-ol-chosen { box-shadow:0 0 0 3px #f8df6b,0 0 10px #f9db5c; }
+.sht-ol-route-city { width:155px; height:155px; object-fit:contain; flex-shrink:0; }
+.sht-ol-route-name { width:100%; margin:-5px 0 8px; padding:4px; background:url('assets/ui/rogueselectmultiplelines/multiple_cityname_bg.png') center/100% 100% no-repeat; font:22px/1.2 'SHT-Original-UI',KaiTi,STKaiti,serif; color:#f5e9c3; }
+.sht-ol-route-description,.sht-ol-route-effect { width:100%; margin:3px 0!important; font:16px/1.5 'SHT-Original-UI',KaiTi,STKaiti,serif; }
+.sht-ol-route-effect { min-height:0; overflow:auto; color:#9c452b; scrollbar-width:thin; }
+.sht-ol-route-footer { flex-shrink:0; padding-top:10px; }
+
+/* Ers/Trs: local result data, own general, skills and tactics on the original result background. */
+.sht-ol-ending-scene { position:relative; height:580px; overflow:hidden; background:url('assets/backgrounds/rogue_jiesuan_bg.png') center/cover no-repeat; }
+.sht-ol-ending-heading { position:absolute; left:0; right:0; top:30px; margin:0; color:#f8df9b; font:42px/1.2 'SHT-Original-UI',KaiTi,STKaiti,serif; text-align:center; text-shadow:0 2px 5px #532419; }
+.sht-ol-ending-difficulty { position:absolute; top:83px; left:0; right:0; margin:0; text-align:center; color:#e8c28d; font:19px/1.4 'SHT-Original-UI',KaiTi,STKaiti,serif; }
+.sht-ol-ending-general { position:absolute; left:160px; top:170px; }
+.sht-ol-ending-summary { position:absolute; top:130px; left:430px; width:660px; display:grid; grid-template-columns:repeat(4,1fr); gap:15px; }
+.sht-ol-result-stat { display:flex; flex-direction:column; align-items:center; gap:7px; padding:12px 4px; color:#e1c39b; font:18px/1.3 'SHT-Original-UI',KaiTi,STKaiti,serif; border-bottom:1px solid #b99b6f77; }
+.sht-ol-result-stat strong { font:26px/1.3 'SHT-Original-UI',KaiTi,STKaiti,serif; color:#ffdc8f; }
+.sht-ol-ending-items { position:absolute; top:239px; left:430px; width:660px; height:225px; display:flex; flex-direction:column; gap:10px; overflow:auto; scrollbar-width:thin; }
+.sht-ol-result-items { display:flex; min-height:66px; gap:18px; }
+.sht-ol-result-items h3 { flex:0 0 43px; margin:8px 0; font:20px/1.4 'SHT-Original-UI',KaiTi,STKaiti,serif; color:#edce9b; }
+.sht-ol-result-list { display:flex; flex-wrap:wrap; align-items:flex-start; gap:10px; }
+.sht-ol-result-item { display:flex; align-items:center; gap:6px; min-height:35px; padding:5px 10px; background:#32241d88; border:1px solid #b8995a66; border-image:none; color:#f4dfb1; font:18px/1.3 'SHT-Original-UI',KaiTi,STKaiti,serif; }
+.sht-ol-result-tactic { flex-direction:column; width:74px; padding:4px; font-size:12px; }
+.sht-ol-result-tactic .sht-tactic-icon { width:48px; height:48px; }
+.sht-ol-result-empty { padding:8px; color:#b39a79; }
+.sht-ol-ending-footer { position:absolute; bottom:20px; left:0; right:0; display:flex; flex-direction:column; align-items:center; gap:8px; }
+.sht-ol-ending-footer p { margin:0!important; color:#dec7a3; font:17px/1.3 'SHT-Original-UI',KaiTi,STKaiti,serif; }
+
+/* The host uniformly scales the logical 1280×580 scene, including narrow windows. */

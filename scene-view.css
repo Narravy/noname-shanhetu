@@ -1,0 +1,185 @@
+/* OL xKt/fKt/zYi: 1650 × 750; local stage: 1280 × 580.
+ * Map artwork keeps its native 1750 × 750 ratio. Source geometry is scaled by
+ * 580/750, with two pixels of horizontal centering for the 1650-wide UI. */
+.sht-root { display:block!important; background:#17140f; font:16px/1.6 KaiTi,STKaiti,'Microsoft YaHei',serif; }
+.sht-root,.sht-stage { transition:none!important; }
+.sht-root[data-tab='tree'] { background-image:none; }
+.sht-root[data-tab='tree'] .sht-stage { background-image:url('assets/backgrounds/roguelike_seacon_bg.png'); }
+.sht-stage { position:absolute; left:50%; top:50%; width:1280px; max-width:none; height:580px; transform:translate(-50%,-50%) scale(var(--sht-stage-scale,1)); transform-origin:center; overflow:hidden; background:#c5ad7e url('assets/backgrounds/roguelike_bg.png') center/cover no-repeat; }
+.sht-body { position:absolute; inset:0; width:100%; height:100%; overflow:hidden; scrollbar-gutter:auto; }
+.sht-scroll-page { position:absolute; inset:60px 40px 20px; overflow:auto; }
+.sht-scroll-page .sht-page { margin:0 auto; padding:22px 30px; }
+.sht-scene-header { position:absolute; inset:0 0 auto; display:flex!important; flex-wrap:nowrap; min-height:0; height:52px; gap:16px; padding:0 55px 5px 65px; border:0; box-shadow:none; background:linear-gradient(#21190bd1,#241b0b63 65%,transparent); color:#f0deb0; z-index:5; pointer-events:none; }
+.sht-scene-header button,.sht-scene-header .sht-resources { pointer-events:auto; }
+.sht-scene-header-select .sht-scene-heading { visibility:hidden; }
+.sht-scene-heading { display:flex; align-items:center; gap:14px; flex-shrink:0; font:24px/1 'SHT-Original-UI',KaiTi,STKaiti,serif; text-shadow:1px 2px 2px #24190b; }
+.sht-root .sht-scene-help { min-height:0; width:24px; height:24px; padding:0; color:#d9bd75; border:1px solid #c9ac61; border-radius:50%; border-image:none; background:#34271b88; font:20px/1 'SHT-Original-UI',KaiTi,STKaiti,serif; }
+.sht-scene-header .sht-resources { margin-left:auto; gap:18px; color:#f3dfb1; font-size:24px; }
+.sht-scene-header .sht-resource { background:#21180b66; padding:0 13px; min-width:108px; gap:18px; }
+.sht-scene-header .sht-resource-icon { width:26px; height:26px; filter:sepia(.5); }
+.sht-scene-header .sht-copper-icon { width:32px; height:32px; }
+.sht-root .sht-scene-menu-button,.sht-root .sht-scene-back { min-width:0; min-height:0; padding:0; width:34px; height:38px; background:none; border:0; border-image:none; color:#e1c477; font:26px/1 'SHT-Original-UI',KaiTi,STKaiti,serif; }
+.sht-root .sht-scene-back { font-size:51px; width:44px; }
+.sht-scene-menu { position:absolute; top:52px; right:55px; width:160px; padding:8px; background:#3b2b1ef5; border:1px solid #c4a568; box-shadow:0 5px 25px #0008; z-index:12; }
+.sht-scene-menu .sht-button { display:block; width:100%; margin:3px 0; font-size:17px; }
+.sht-scene-progress { position:absolute; top:3px; left:370px; display:flex; align-items:center; gap:5px; width:575px; height:48px; padding-top:18px; color:#e0cf9d; }
+.sht-scene-chapter { position:absolute; top:-3px; left:148px; font:18px/1.2 'SHT-Original-UI',KaiTi,STKaiti,serif; letter-spacing:.12em; }
+.sht-scene-year { font-size:19px; flex-shrink:0; }
+.sht-scene-progress .sht-month-track { position:relative; width:250px; flex:none; height:12px; margin:0; border:0; overflow:visible; background:#703521 url('assets/ui/roguesmallmap/rogue_day_pro_bg.png') center/100% 100% no-repeat; }
+.sht-scene-progress .sht-month-fill { display:block; height:100%; background:#db502c url('assets/ui/roguesmallmap/rogue_day_pro_img.png') left center/250px 100% no-repeat; }
+.sht-scene-progress .sht-month-number { position:absolute; inset:-5px 0 auto; display:block; width:100%; height:auto; text-align:center; background:none; color:#f1dcba; font-size:17px; }
+.sht-scene-boss { width:40px; height:34px; margin-left:-7px; }
+.sht-scene-goal { white-space:nowrap; font-size:14px; }
+.sht-scene-goal-actions { white-space:pre-line; line-height:1.15; }
+.sht-overworld,.sht-selection,.sht-chapter-scene { position:absolute; inset:0; overflow:hidden; }
+.sht-world-chapter { position:absolute; left:98px; top:78px; padding:2px 12px; background:#695032a8; color:#f3e1b0; font-size:23px; z-index:1; }
+.sht-world-terrain { position:absolute; left:50%; top:0; width:1034.72px; max-width:none; height:580px; transform:translateX(-50%); object-fit:contain!important; pointer-events:none; }
+.sht-world-routes { position:absolute; inset:0; width:1280px; height:580px; pointer-events:none; }
+.sht-world-routes line { stroke:#c1b58d; stroke-width:2; stroke-dasharray:7 5; opacity:.6; }
+.sht-world-routes line.sht-world-route-open { stroke:#fff0a8; stroke-width:3; opacity:1; }
+.sht-root .sht-world-city { position:absolute; display:block; width:100px; min-height:0; padding:0; border:0; border-image:none; background:none; transform:translate(-50%,-50%); text-align:center; z-index:1; }
+.sht-root .sht-world-city:active { transform:translate(-50%,-50%); }
+.sht-world-city:hover { filter:brightness(1.14); z-index:2; }
+.sht-world-city img { display:block; width:78px; height:78px; margin:0 auto; }
+.sht-world-city span { display:block; margin-top:-5px; font:20px/1.2 'SHT-Original-UI',KaiTi,STKaiti,serif; color:#544a25; text-shadow:0 1px 2px #f3e3ad; white-space:nowrap; }
+.sht-world-current>span,.sht-world-available>span { color:#fff2c7; text-shadow:0 1px 2px #302510; background:url('assets/ui/roguelikebigmap/bigmap_cityname_bg.png') center/100% 100% no-repeat; }
+.sht-world-available { filter:drop-shadow(0 0 6px #ffe99c); }
+.sht-world-cleared>img { filter:saturate(.55); }
+.sht-world-locked { opacity:.45; }
+.sht-world-location { position:absolute; left:50%; top:-42px; transform:translateX(-50%); width:44px; height:57px; padding:5px 5px 14px; background:url('assets/ui/roguelikebigmap/player_head_bg.png') center/contain no-repeat; pointer-events:none; }
+.sht-world-location img { width:34px; height:34px; border-radius:50%; object-fit:cover!important; object-position:top; }
+.sht-world-start { position:absolute; bottom:53px; left:50%; transform:translateX(-50%); display:flex; align-items:center; flex-direction:column; gap:8px; }
+.sht-root .sht-difficulty-trigger { padding:0 12px; min-height:34px; border:0; border-image:none; background:url('assets/ui/roguelikebigmap/bigmap_hard_bg.png') center/100% 100% no-repeat; color:#f6df9c; font:23px/1.2 'SHT-Original-UI',KaiTi,STKaiti,serif; }
+.sht-root .sht-world-start-button { width:215px; height:62px; color:#6a541b; font:30px/1.2 'SHT-Original-UI',KaiTi,STKaiti,serif; border:1px solid #ceb65c; border-image:none; border-radius:3px; background:linear-gradient(#ead056,#fff2a1,#dfc953); box-shadow:inset 0 0 0 3px #f4e5a488,0 2px 5px #66512f88; }
+.sht-world-shortcuts { position:absolute; right:96px; bottom:18px; display:flex; gap:8px; }
+.sht-world-route-hint { position:absolute; top:calc(100% + 8px); left:50%; transform:translateX(-50%); width:max-content; max-width:none; margin:0; font-size:16px; white-space:nowrap; color:#4d3c20; background:#f0dfb8d9; padding:2px 12px; }
+.sht-root .sht-scene-icon { width:76px; height:76px; min-height:0; padding:0; border:0; border-image:none; background:none; }
+.sht-scene-icon img { width:100%; height:100%; }
+.sht-scene-icon:disabled { border-image:none; }
+.sht-selection { background:#b7a47b url('assets/backgrounds/roguelike_seacon_bg.png') center/cover no-repeat; }
+.sht-selection::before { content:''; position:absolute; left:467px; top:52px; width:346.45px; height:346.45px; background:url('assets/ui/rogueselectgeneral/rogue_general_bg.png') center/contain no-repeat; pointer-events:none; }
+.sht-selection-top { position:absolute; left:43px; top:17px; display:flex; align-items:center; gap:8px; width:1075px; height:53px; padding-left:136px; background:url('assets/ui/rogueselectgeneral/rogue_top_bg.png') center/100% 100% no-repeat; }
+.sht-selection-top .sht-difficulty-trigger { width:298px; height:49px; flex:none; background-image:url('assets/ui/rogueselectgeneral/rogue_hard_tex.png'); }
+.sht-root .sht-selection-loadout { border:0; border-image:none; background:none; color:#6e4e2b; font-size:19px; }
+.sht-selection-top .sht-tactic-orb { width:36px; height:36px; }
+.sht-selection-skills { position:absolute; left:214px; top:91px; width:322px; height:258px; padding:15px 18px; overflow:auto; color:#503a20; background:url('assets/ui/rogueselectgeneral/rogue_infobg.png') center/100% 100% no-repeat; }
+.sht-selection-skills .sht-skill-name { display:table; min-width:76px; padding:3px 8px; color:#f2e4c0; background:url('assets/ui/rogueselectgeneral/rogue_skillname_bg.png') center/100% 100% no-repeat; }
+.sht-selection-skills p { font:16px/1.7 'SHT-Original-UI',KaiTi,STKaiti,serif; margin-bottom:20px; }
+.sht-selection-portrait { position:absolute; left:535px; top:93px; width:210px; height:265px; }
+.sht-selection-portrait .sht-portrait-name { font-size:22px; }
+.sht-selection-settings { position:absolute; left:738px; top:117px; width:330px; color:#50381c; }
+.sht-selection-settings h2 { font-size:28px; }
+.sht-selection-settings label { display:flex; align-items:center; gap:14px; font-size:20px; }
+.sht-selection-settings select { width:100px; padding:4px 10px; }
+.sht-selection-settings p { margin:7px 0; font-size:15px; }
+.sht-selection-settings .sht-start-button { width:160px; font-size:22px; margin-top:10px; }
+.sht-selection-confirm-hint { display:block; margin-top:5px; font-size:13px; color:#675334; }
+.sht-selection-settings .sht-selection-privileges { min-height:24px; max-width:300px; line-height:1.5; }
+.sht-selection-roster { position:absolute; left:228px; top:372px; width:827.47px; height:154.67px; border:0; overflow:visible; background:url('assets/ui/rogueselectgeneral/rogue_list_bg.png') center/100% 100% no-repeat; }
+.sht-selection-controls { position:absolute; left:0; right:0; bottom:-44px; display:flex; align-items:center; justify-content:space-between; height:40px; padding:0 10px; }
+.sht-selection-controls .sht-input { width:200px; padding:3px 10px; font:15px/1.6 'SHT-Original-UI',KaiTi,STKaiti,serif; }
+.sht-selection-controls .sht-pager { margin:0; gap:12px; font-size:15px; }
+.sht-candidate-row { display:flex; align-items:center; justify-content:center; gap:40px; height:154px; }
+.sht-root .sht-candidate { position:relative; display:block; width:92px; height:92px; min-height:0; flex:0 0 92px; padding:0; border:2px solid #927744; border-image:none; border-radius:2px; background:#493823; overflow:hidden; }
+.sht-candidate img { width:100%; height:100%; object-fit:cover!important; object-position:center 18%; }
+.sht-candidate span { position:absolute; bottom:0; left:0; right:0; color:#f8e5b1; font:19px/1.4 'SHT-Original-UI',KaiTi,STKaiti,serif; background:#31210dc9; }
+.sht-root .sht-candidate.sht-selected { border-color:#f9df71; box-shadow:0 0 6px 2px #eacb60; }
+.sht-candidate.sht-selected::after { display:none; }
+.sht-map { position:absolute; top:0; left:50%; width:1353.333px; max-width:none; min-width:0; height:580px; aspect-ratio:auto; transform:translateX(-50%); background-size:100% 100%; }
+.sht-map-node { width:170.133px; height:154.667px; align-items:center; }
+.sht-map-node .sht-node-art { position:absolute; inset:0; display:block; width:100%; height:100%; aspect-ratio:auto; }
+.sht-map-node:not(:disabled) .sht-node-art { background:none; }
+.sht-map-node.sht-current-node .sht-node-art,.sht-map-node:hover:not(:disabled) .sht-node-art { background:url('assets/ui/roguesmallmap/smallmap_city_sel.png') center bottom/100% 100% no-repeat; }
+.sht-map-node .sht-node-sprite { position:absolute; bottom:auto; left:50%; top:75.013px; width:auto; max-width:none; height:auto; transform:translate(-50%,-50%); object-fit:contain; }
+.sht-map-node .sht-node-marker { position:absolute; left:50%; top:72.693px; width:92.8px; height:92.8px; transform:translate(-50%,-50%); object-fit:contain; filter:none; }
+.sht-map-node.boss .sht-node-marker { width:80.427px; height:57.227px; top:71.147px; }
+.sht-map-node .sht-node-label { position:absolute; left:7.347px; top:109.04px; width:155.44px; max-width:none; min-height:0; height:32.48px; margin:0; padding:0 7px; color:#f4edcc; font:23.2px/32.48px 'SHT-Original-UI',KaiTi,STKaiti,serif; white-space:nowrap; background-size:155.44px 22.427px; background-repeat:no-repeat; }
+.sht-map-node[data-kind='battle'] .sht-node-label { background-image:url('assets/ui/roguesmallmap/smallmap_bg_2.png'); }
+.sht-map-node.locked .sht-node-sprite { opacity:1; }
+.sht-location-pin { position:absolute; left:50%; top:-30px; transform:translateX(-50%); width:52.6px; height:68px; padding:5px 5px 18px; background:url('assets/ui/roguelikebigmap/player_head_bg.png') center/100% 100% no-repeat; z-index:2; pointer-events:none; }
+.sht-location-pin img { width:42px; height:42px; border-radius:50%; object-fit:cover!important; object-position:center top; }
+.sht-root .sht-map-shop { position:absolute; left:68px; right:auto; top:110px; width:76px; height:76px; }
+.sht-root .sht-map-status { position:absolute; right:90px; top:310px; width:64px; height:64px; }
+.sht-encounter-resume { position:absolute; left:50%; bottom:22px; transform:translateX(-50%); display:flex; gap:0; border:0; padding:0; background:none; z-index:4; }
+.sht-encounter-resume .sht-button { min-height:36px; font-size:18px; }
+.sht-player-hud { position:absolute; right:68px; bottom:3px; width:660px; height:208px; pointer-events:none; }
+.sht-player-hud button { pointer-events:auto; }
+.sht-player-hud .sht-ol-portrait { pointer-events:auto; cursor:pointer; }
+.sht-ol-portrait[role='button']:focus-visible { outline:2px solid #e9ce80; outline-offset:-12px; }
+.sht-hud-tactics { position:absolute; left:0; bottom:7px; display:grid; grid-template-columns:repeat(3,33px); gap:8px; padding:5px; width:125px; max-height:130px; overflow:auto; background:#4d281d83; }
+.sht-root .sht-tactic-orb { position:relative; display:flex; align-items:center; justify-content:center; min-height:0; min-width:0; width:33px; height:33px; border:0; border-image:none; padding:0; border-radius:50%; background:#412b24cc; color:#ffdc71; }
+.sht-tactic-orb.sht-orb-filled,.sht-selection-top .sht-tactic-orb { background:url('assets/ui/roguecommon/rogue_zhanfa_bg_1.png') center/contain no-repeat; }
+.sht-tactic-orb[data-rarity='2'] { background-image:url('assets/ui/roguecommon/rogue_zhanfa_bg_2.png'); }
+.sht-tactic-orb[data-rarity='3'] { background-image:url('assets/ui/roguecommon/rogue_zhanfa_bg_3.png'); }
+.sht-tactic-orb[data-rarity='4'] { background-image:url('assets/ui/roguecommon/rogue_zhanfa_bg_4.png'); }
+.sht-tactic-orb .sht-item-icon { width:22px; height:22px; filter:sepia(1); }
+.sht-tactic-orb small { position:absolute; bottom:-1px; left:0; width:100%; font:10px/1 'SHT-Original-UI',KaiTi,STKaiti,serif; text-shadow:0 1px 2px #000; color:#fff1a7; white-space:nowrap; }
+.sht-tactic-orb:disabled { border-image:none; opacity:1; }
+.sht-hud-skills { position:absolute; left:134px; bottom:7px; display:grid; grid-template-columns:repeat(3,100px); grid-auto-rows:44px; gap:9px; width:318px; max-height:150px; overflow:auto; align-content:start; }
+.sht-root .sht-hud-skill { min-height:0; padding:3px 6px; border:0; border-image:none; border-radius:2px; color:#e0c18d; background:#34200d url('assets/ui/roguesmallmap/rogue_skill_bg_normal_new.png') center/100% 100% no-repeat; font:23px/1.2 'SHT-Original-UI',KaiTi,STKaiti,serif; }
+.sht-hud-skill:disabled { opacity:.78; color:#a68d67; border-image:none; }
+.sht-hud-skills-compact [data-slot='0'] { grid-column:1; grid-row:1; }
+.sht-hud-skills-compact [data-slot='1'] { grid-column:2; grid-row:2; }
+.sht-hud-skills-compact [data-slot='2'] { grid-column:1; grid-row:2; }
+.sht-hud-skills-compact [data-native='0'] { grid-column:3; grid-row:1; }
+.sht-hud-skills-compact [data-native='1'] { grid-column:3; grid-row:2; }
+.sht-hud-skills-compact .sht-hud-rebirth { grid-column:2; grid-row:1; }
+.sht-root .sht-native-skill { color:#ffdfb0; background-image:url('assets/ui/roguesmallmap/rogue_skill_bg_unActiveBtn_new.png'); box-shadow:none; }
+.sht-hud-portrait { position:absolute; right:0; bottom:-3px; width:190px; height:240px; }
+.sht-hud-portrait .sht-portrait-name { font-size:17px; top:29%; }
+.sht-hud-hp { position:absolute; display:flex; flex-direction:column; gap:2px; left:18%; bottom:17%; }
+.sht-hud-hp i { display:block; width:9px; height:13px; border-radius:50%; border:1px solid #688536; background:#454a30; }
+.sht-hud-hp .sht-hp-full { background:linear-gradient(115deg,#eff5b2,#72be2e 40%,#286d19); box-shadow:0 0 3px #a0bc65; }
+.sht-hud-hp-number { position:absolute; bottom:8%; left:17%; color:#fff5d2; font:22px/1 'SHT-Original-UI',KaiTi,STKaiti,serif; text-shadow:1px 1px 2px #000; }
+.sht-hud-allies { position:absolute; right:170px; bottom:112px; display:flex; gap:4px; }
+.sht-root .sht-ally-card { position:relative; width:36px; height:44px; min-height:0; padding:0; border:1px solid #c1a36a; border-image:none; background:#442f18; overflow:hidden; }
+.sht-ally-card img { width:100%; height:100%; object-fit:cover!important; }
+.sht-ally-card span { position:absolute; bottom:0; left:0; right:0; font:11px/1.2 'SHT-Original-UI',KaiTi,STKaiti,serif; background:#503369d9; color:#fff2cc; }
+/* The actual acquired hand/equipment strip stays at lower-left on the map. */
+.sht-earned-cards { position:absolute; left:108px; bottom:10px; display:flex; align-items:flex-end; gap:9px; width:max-content; max-width:370px; padding:5px 3px; overflow-x:auto; overflow-y:hidden; z-index:3; }
+.sht-root .sht-earned-card { position:relative; width:76px; height:106px; flex:0 0 76px; min-height:0; padding:0; border:0; border-image:none; background:none; }
+.sht-playing-card { position:relative; aspect-ratio:133/186; }
+.sht-tactic-picture { display:block; width:100%; height:100%; object-fit:contain; filter:none; }
+.sht-has-tactic-art { background-image:none!important; }
+.sht-tactic-orb.sht-has-tactic-art small { display:none; }
+.sht-tree-ol-art .sht-tree-ol-tactic-picture { position:absolute; inset:0; width:100%; height:100%; filter:none; }
+.sht-catalog-tactic-art { width:48px; height:48px; }
+.sht-playing-art { display:block; width:100%; height:100%; object-fit:fill!important; }
+.sht-playing-corner { position:absolute; left:5px; top:4px; display:flex; flex-direction:column; align-items:center; font:16px/1 Georgia,'Times New Roman',serif; color:#17140c; }
+.sht-playing-corner span { display:block; }
+.sht-playing-card[data-suit='heart'] .sht-playing-corner,.sht-playing-card[data-suit='diamond'] .sht-playing-corner { color:#b0201b; }
+.sht-playing-name { position:absolute; left:30%; right:8%; top:9%; color:#261b10; font:23px/1.2 'SHT-Original-UI',KaiTi,STKaiti,serif; writing-mode:vertical-rl; }
+.sht-earned-card-face { width:76px; height:106px; filter:drop-shadow(1px 2px 2px #30200c); }
+.sht-earned-card-face .sht-playing-corner { left:4px; top:4px; font-size:13px; }
+.sht-earned-equipment { position:absolute; left:0; right:0; bottom:0; background:#523c20cc; color:#f5e4b4; font:13px/1.4 'SHT-Original-UI',KaiTi,STKaiti,serif; }
+.sht-sheet { position:fixed; inset:0; margin:auto; width:min(760px,calc(100% - 32px)); max-width:calc(100% - 32px); max-height:calc(100% - 32px); padding:28px; border:1px solid #b6985f; color:#4e3b21; background:#dfcca4 url('assets/backgrounds/rogue_entry_bg.png') center/cover no-repeat; box-shadow:0 12px 50px #0009; overflow:auto; font:17px/1.7 'SHT-Original-UI',KaiTi,STKaiti,serif; }
+.sht-sheet::backdrop { background:#171109bb; }
+.sht-sheet .sht-status-row { padding:8px 12px; margin:5px 0; border-left:2px solid #a37e3d; background:#ead9b477; }
+.sht-status-row p { margin:0; font-size:15px; }
+.sht-sheet .sht-status-row.sht-button { display:block; width:100%; white-space:normal; text-align:left; color:#4e3b21; }
+.sht-status-row strong { display:block; }
+.sht-status-summary { margin:0 0 12px; }
+.sht-root .sht-encounter-dialog,.sht-root .sht-difficulty-dialog { position:fixed; inset:auto; left:50%; top:50%; width:1280px; max-width:none; height:580px; max-height:none; margin:0; padding:0; transform:translate(-50%,-50%) scale(var(--sht-stage-scale,1)); transform-origin:center; border:0; background:transparent; box-shadow:none; overflow:visible; }
+.sht-encounter-dialog[open] { display:flex; align-items:center; justify-content:center; }
+.sht-encounter-dialog::backdrop { background:#160e07b8; }
+.sht-encounter-dialog .sht-encounter-back { position:absolute; right:55px; top:6px; min-height:32px; padding:4px 9px; border:0; border-image:none; background:#35281588; color:#f4dda4; font:20px/1.2 'SHT-Original-UI',KaiTi,STKaiti,serif; z-index:8; }
+.sht-encounter-dialog .sht-fallback-encounter { max-height:470px; width:950px; padding:28px 44px; overflow:auto; background:#e6d4af url('assets/backgrounds/rogue_entry_bg.png') center/cover no-repeat; border:1px solid #c5a369; }
+.sht-encounter-dialog .sht-toast { bottom:40px; }
+.sht-root .sht-difficulty-dialog { background:transparent; color:#f2e1b6; }
+.sht-difficulty-window { position:absolute; left:50%; top:50%; width:1650px; max-width:none; height:534px; transform:translate(-50%,-50%) scale(.7733333333); transform-origin:center; }
+.sht-difficulty-window::before { content:''; position:absolute; left:-50px; top:-3px; width:1750px; height:545px; background:#352219 var(--difficulty-art) center/100% 100% no-repeat; pointer-events:none; }
+.sht-difficulty-tabs { position:absolute; left:170px; top:32px; display:flex; flex-direction:column; justify-content:space-around; gap:12px; width:181px; height:475px; }
+.sht-difficulty-tabs .sht-button { position:relative; min-height:66px; padding:10px 22px; border:0; border-image:none; background:transparent; font:30px/1.4 'SHT-Original-UI',KaiTi,STKaiti,serif; color:#c8b48c; }
+.sht-difficulty-tabs .active { color:#ffea8e; background:url('assets/ui/roguediffcultynewselect/newselect_tab_light.png') center/100% 100% no-repeat; }
+.sht-difficulty-lock { position:absolute; right:0; top:22px; width:37px; height:21px; }
+.sht-difficulty-content { position:absolute; left:650px; top:86px; width:510px; text-align:center; }
+.sht-difficulty-content h2 { margin:0; font:46px/1.5 'SHT-Original-UI',KaiTi,STKaiti,serif; }
+.sht-difficulty-content p { margin:14px 0 0; min-height:42px; max-height:125px; overflow:auto; font-size:24px; line-height:1.5; }
+.sht-difficulty-levels { display:flex; justify-content:center; gap:17px; margin:22px 0; }
+.sht-difficulty-levels .sht-button { position:relative; width:50px; height:48px; min-height:0; padding:0; border:0; border-image:none; background:none; font-size:22px; }
+.sht-difficulty-level-icon { position:absolute; inset:0; width:50px; height:48px; }
+.sht-difficulty-levels .sht-button span { position:relative; display:block; width:100%; color:#fff0c1; text-shadow:0 1px 3px #000; }
+.sht-difficulty-levels .active { filter:drop-shadow(0 0 4px #ffe0a0); }
+.sht-root .sht-difficulty-confirm { position:absolute; left:785px; top:445px; width:232px; height:72px; font:30px/1.2 'SHT-Original-UI',KaiTi,STKaiti,serif; }
+.sht-difficulty-note { position:absolute; left:642px; top:386px; width:530px; margin:0; text-align:center; font-size:20px; color:#dfc99e; }
+.sht-root .sht-sheet-back { position:absolute; right:55px; top:12px; border:0; border-image:none; padding:0; background:none; color:#ebcf87; font:50px/1 'SHT-Original-UI',KaiTi,STKaiti,serif; }

@@ -1,0 +1,29 @@
+/* Hcs -> SYi original general tip: tip_bg, sizeGrid 29,29,29,31, 531 x 390. */
+.sht-enemy-inspect-target { cursor:pointer; touch-action:manipulation; -webkit-tap-highlight-color:transparent; }
+.sht-enemy-inspect-target:focus-visible { outline:2px solid #ecd190; outline-offset:5px; }
+.sht-enemy-inspect-layer { position:absolute; inset:0; z-index:300; display:block; background:none; }
+.sht-enemy-inspect-panel {
+  position:absolute; display:grid; grid-template-columns:166px minmax(0,1fr); gap:14px;
+  width:531px; height:390px; max-width:none; margin:0; padding:0;
+  border-style:solid; border-width:29px 29px 29px 31px;
+  border-image:url('assets/enemy-inspect/tip_bg.png') 29 29 29 31 fill stretch;
+  background:#2b251b; background-clip:padding-box; color:#cbbb7d; box-shadow:0 3px 10px #17140d66;
+  font:18px/1.4 'SHT-Original-UI',KaiTi,STKaiti,serif; text-align:left;
+}
+.sht-enemy-inspect-overview { display:flex; flex-direction:column; align-items:center; min-width:0; }
+.sht-enemy-inspect-panel .sht-enemy-inspect-portrait { width:166px; height:250px; flex:none; --sht-ol-portrait-scale:1.05; }
+.sht-enemy-inspect-portrait .sht-ol-player { left:18px; top:34px; }
+.sht-enemy-inspect-panel .sht-enemy-inspect-difficulty { margin:9px 0 0; text-align:center; font-size:15px; line-height:1.4; color:#c1ad73; }
+.sht-enemy-inspect-list { min-width:0; min-height:0; width:100%; height:100%; padding:0 7px 0 0; overflow-x:hidden; overflow-y:auto; overscroll-behavior:contain; touch-action:pan-y; scrollbar-width:thin; scrollbar-color:#897544 #282217; outline:0; }
+.sht-enemy-inspect-list:focus-visible { outline:1px solid #b2944a; outline-offset:3px; }
+.sht-enemy-inspect-list .sht-enemy-inspect-effect { margin:0 0 22px; }
+.sht-enemy-inspect-list .sht-enemy-inspect-effect-name,.sht-enemy-inspect-list .sht-enemy-inspect-section-name { margin:0 0 5px; color:#dd8d24; font:20px/1.35 'SHT-Original-UI',KaiTi,STKaiti,serif; letter-spacing:.08em; }
+.sht-enemy-inspect-list .sht-enemy-inspect-section-name { border-top:1px solid #80693688; padding-top:12px; }
+.sht-enemy-inspect-list .sht-enemy-inspect-description,.sht-enemy-inspect-list .sht-enemy-inspect-bonus,.sht-enemy-inspect-list .sht-enemy-inspect-empty { margin:0; color:#cbbb7d; font:18px/1.4 'SHT-Original-UI',KaiTi,STKaiti,serif; white-space:pre-line; overflow-wrap:anywhere; }
+.sht-enemy-inspect-bonuses { padding-bottom:4px; }
+.sht-enemy-inspect-panel .sht-enemy-inspect-close { position:absolute; right:-21px; top:-23px; display:flex; align-items:center; justify-content:center; width:27px; height:27px; margin:0; padding:0; border:0; background:none; color:#c9b376; font:25px/1 Arial,sans-serif; cursor:pointer; }
+.sht-enemy-inspect-panel .sht-enemy-inspect-scroll { position:absolute; left:70%; transform:translateX(-50%); display:block; width:38px; height:32px; margin:0; padding:0; border:0; background:transparent center/100% 100% no-repeat; cursor:pointer; }
+.sht-enemy-inspect-panel .sht-enemy-inspect-up { top:-48px; background-image:url('assets/enemy-inspect/scroll_tips_up.png'); }
+.sht-enemy-inspect-panel .sht-enemy-inspect-down { bottom:-48px; background-image:url('assets/enemy-inspect/scroll_tips_dn.png'); }
+.sht-enemy-inspect-panel .sht-enemy-inspect-scroll[hidden] { display:none; }
+.sht-enemy-inspect-panel button:focus-visible { outline:1px solid #efce7c; outline-offset:2px; }

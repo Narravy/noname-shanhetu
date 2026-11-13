@@ -1,0 +1,34 @@
+/* The class is only assigned to this mode's physical cards. !important keeps a
+ * delayed 十周年UI skin callback from replacing the selected wiki artwork.
+ * Card backs, selection transforms, physical corner data, gains and equipment
+ * labels continue to use the engine and the active UI extension's own rules. */
+.card.sht-wiki-card:not(.infohidden) {
+  background-image:var(--sht-wiki-card-art)!important;
+  background-size:100% 100%!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+}
+.card.sht-wiki-card.infohidden {
+  background-image:var(--sht-wiki-card-back, var(--cardback-url, none))!important;
+  background-size:100% 100%!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+}
+.card.sht-wiki-card.infohidden.infoflip {
+  background-image:var(--sht-wiki-card-back-flipped, var(--cardback-url, none))!important;
+}
+.card.sht-wiki-card:not(.infohidden) > .image,
+.card.sht-wiki-card:not(.infohidden) > .background,
+.card.sht-wiki-card:not(.infohidden) > .name,
+.card.sht-wiki-card:not(.infohidden) > .top-name {
+  opacity:0!important;
+  pointer-events:none;
+}
+.card.sht-wiki-card > .sht-wiki-fallback-name {
+  position:absolute; left:27%; right:8%; top:10%; bottom:auto;
+  font:20px/1.25 KaiTi,STKaiti,serif; writing-mode:vertical-rl;
+  color:#261b10; text-shadow:none; pointer-events:none;
+}
+.card.sht-wiki-card.infohidden > .sht-wiki-fallback-name { display:none!important; }
+.equips > .card.sht-wiki-card { background-image:none!important; }
+.equips > .card.sht-wiki-card > .sht-wiki-fallback-name { display:none!important; }

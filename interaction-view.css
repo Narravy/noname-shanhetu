@@ -1,0 +1,28 @@
+/* Local counterparts of the original confirm/detail/replacement windows. */
+.sht-root .sht-prompt-dialog {
+  position:fixed; inset:0; width:min(690px,calc(100vw - 24px)); height:max-content;
+  max-width:calc(100vw - 24px); max-height:calc(100dvh - 24px); margin:auto;
+  padding:0; overflow:auto; border:1px solid #b89a59; border-radius:3px;
+  color:#efdfb6; background:linear-gradient(#372d20f2,#201b15f7);
+  box-shadow:0 12px 60px #000a,inset 0 0 0 3px #4c3d27;
+  font:18px/1.6 'SHT-Original-UI',KaiTi,STKaiti,serif;
+}
+.sht-root .sht-prompt-dialog::backdrop { background:#100c08a8; }
+.sht-prompt-panel { display:block; padding:22px 28px; }
+.sht-prompt-title { margin:0 0 14px; color:#f3d792; text-align:center; font:28px/1.3 'SHT-Original-UI',KaiTi,STKaiti,serif; }
+.sht-prompt-description { margin:0 0 18px; white-space:pre-wrap; text-align:center; }
+.sht-prompt-choices { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-bottom:20px; max-height:48dvh; overflow:auto; }
+.sht-prompt-choices .sht-prompt-option { display:flex; flex-direction:column; align-items:center; gap:4px; min-height:76px; padding:10px; color:#eddcaf; background:#67503366; border:1px solid #9c8050; border-image:none; white-space:normal; text-align:center; }
+.sht-prompt-choices .sht-prompt-option[aria-pressed='true'] { background:#8d692e99; border-color:#f9df79; box-shadow:inset 0 0 12px #d4a33955; }
+.sht-prompt-option-description { display:block; font:15px/1.45 'SHT-Original-UI',KaiTi,STKaiti,serif; white-space:pre-wrap; }
+.sht-prompt-icon { display:block; width:48px; height:48px; object-fit:contain; }
+.sht-prompt-footer { display:flex; justify-content:center; gap:24px; }
+.sht-prompt-footer .sht-button,.sht-prompt-panel>.sht-prompt-confirm { min-width:120px; min-height:40px; font-size:20px; }
+.sht-prompt-panel>.sht-prompt-confirm { display:block; margin:16px auto 0; }
+.sht-item-details { display:flex; align-items:center; justify-content:center; gap:22px; }
+.sht-item-description { flex:1; min-width:0; white-space:pre-wrap; margin:0; }
+.sht-item-large-icon { display:block; width:86px; height:86px; flex:none; object-fit:contain; }
+.sht-item-large-card { position:relative; width:114px; height:160px; flex:none; }
+.sht-item-quality { display:block; margin-top:10px; color:#d8bd80; text-align:center; }
+@media(max-height:430px) { .sht-prompt-panel { padding:14px 22px; } .sht-prompt-title { font-size:23px; margin-bottom:8px; } .sht-prompt-description { margin-bottom:10px; } .sht-prompt-choices { max-height:40dvh; } }
+@media(max-width:520px) { .sht-prompt-panel { padding:18px; } .sht-prompt-choices { grid-template-columns:1fr; } .sht-item-details { gap:12px; } }

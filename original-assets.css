@@ -1,0 +1,22 @@
+@font-face {
+  font-family:'SHT-Original-UI';
+  src:url('assets/original-motion-fonts/fonts/FZLBGBK.ttf') format('truetype');
+  font-display:swap;
+}
+@font-face {
+  font-family:'SHT-Original-Skill';
+  src:url('assets/original-motion-fonts/fonts/HYF3GJM.ttf') format('truetype');
+  font-display:swap;
+}
+.sht-root .sht-motion-layer { position:absolute; inset:0; display:block; width:100%; height:100%; max-width:none; pointer-events:none; z-index:4; }
+.sht-root .sht-motion-background { z-index:0; }
+.sht-overworld>.sht-world-start,.sht-overworld>.sht-world-shortcuts,.sht-overworld>.sht-world-chapter { z-index:2; }
+.sht-overworld>.sht-world-terrain { z-index:1; }
+.sht-root .sht-ol-shop-scene>.sht-motion-background { z-index:1; }
+.sht-ol-shop-scene>.sht-ol-merchant,.sht-ol-shop-scene>.sht-ol-shop-owner { z-index:2; }
+.sht-ol-shop-scene>.sht-ol-shop-head,.sht-ol-shop-scene>.sht-ol-shop-tabs,.sht-ol-shop-scene>.sht-ol-shop-stock,.sht-ol-shop-scene>.sht-ol-shop-footer { z-index:3; }
+.sht-root .sht-ol-adventure-scene[data-has-actor='true'] .sht-ol-event-actor { position:absolute; left:-22px; top:24px; width:440px; height:520px; max-width:none; object-fit:contain; object-position:center bottom; pointer-events:none; }
+.sht-root .sht-ol-adventure-scene[data-has-actor='true'] .sht-ol-event-story { left:340px; right:40px; }
+.sht-root .sht-ol-adventure-scene[data-has-actor='true'] .sht-ol-event-options { left:380px; right:35px; }
+.sht-root .sht-ol-adventure-scene[data-has-actor='true'] .sht-ol-event-option { flex:0 0 205px; }
+@media(prefers-reduced-motion:reduce) { .sht-root .sht-motion-layer { animation:none; } }

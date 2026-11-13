@@ -1,0 +1,101 @@
+/* Original lXi/uds/WKt: five lanes, six visible columns and staggered slots.
+   KVi is the six-column replacement picker; uXi/cXi is the school list.
+   Adapted to the existing 1280x580 stage; source evidence lives in backups. */
+.sht-tree-ol { position:absolute; inset:48px 30px 18px 24px; display:grid; grid-template-columns:252px minmax(0,1fr); gap:22px; color:#705a30; font:15px/1.4 'SHT-Original-UI',KaiTi,STKaiti,serif; }
+.sht-tree-ol-rail { padding:12px 20px 0; border-right:1px solid #e4d1a35c; background:#8e7c4e24; text-align:center; }
+.sht-tree-ol-scheme { padding:5px 8px; margin:0 4px 12px; color:#e9d69d; background:#796a48b8; font-size:16px; white-space:nowrap; }
+.sht-tree-ol-loadout { display:grid; grid-template-columns:1fr 1fr; grid-template-rows:repeat(6,55px); padding:0 10px 22px; }
+.sht-tree-ol-slot { display:flex; flex-direction:column; justify-content:center; align-items:center; width:84px; height:76px; padding:0; border:0; border-image:none; background:none; color:#5e4c2e; box-shadow:none; overflow:visible; }
+.sht-tree-ol-slot:disabled { border-image:none; opacity:.65; }
+.sht-tree-ol-art { display:block; position:relative; width:62px; height:62px; background-position:center; background-size:contain; background-repeat:no-repeat; }
+.sht-tree-ol-type-icon { position:absolute; left:17px; top:17px; width:28px; height:28px; filter:none; }
+.sht-tree-ol-art-label { position:absolute; top:51px; left:50%; transform:translateX(-50%); width:max-content; max-width:118px; padding:1px 5px; font:13px/1.2 'SHT-Original-UI',KaiTi,STKaiti,serif; color:#f2dba0; text-shadow:0 1px 2px #5a492b; background:url('assets/ui/rogueSeacon/roguelikeui_rogueSeacon_nameBg.png') center/100% 100% no-repeat; white-space:nowrap; }
+.sht-tree-ol-empty { display:grid; place-items:center; width:62px; height:62px; background:url('assets/ui/roguecommon/rogue_zhanfa_bg_1.png') center/contain no-repeat; }
+.sht-tree-ol-empty-icon { width:30px; height:30px; object-fit:contain; }
+.sht-tree-ol-slot-locked .sht-tree-ol-empty { background-image:url('assets/ui/roguecommon/rogue_zhanfa_bg_4.png'); }
+.sht-tree-ol-slot>span:not(.sht-tree-ol-art):last-child { font-size:12px; white-space:nowrap; }
+.sht-tree-ol-loadout-note { display:block; margin:8px 0 6px; font-size:12px; }
+.sht-tree-ol-manage { font-size:13px; min-height:30px; padding:6px 18px; }
+.sht-tree-ol-spent { display:block; margin-top:8px; font:11px/1.3 'Microsoft YaHei',sans-serif; }
+.sht-tree-ol-chart { display:flex; flex-direction:column; min-width:0; padding-top:0; }
+.sht-tree-ol-toolbar { display:flex; justify-content:space-between; align-items:center; height:30px; font:11px/1.3 'Microsoft YaHei',sans-serif; color:#806e44; }
+.sht-tree-ol-navigation { display:flex; gap:5px; }
+.sht-tree-ol-scroll-button { appearance:none; border:1px solid #8f754b55; background:#b49c6533; color:#6e542b; width:34px; height:26px; font:22px/1 'SHT-Original-UI',KaiTi,serif; padding:0; cursor:pointer; }
+.sht-tree-ol-diagram { display:flex; flex:1; min-width:0; min-height:0; }
+.sht-tree-ol-lane-labels { padding-top:32px; width:32px; flex-shrink:0; display:flex; flex-direction:column; }
+.sht-tree-ol-lane-labels>div { display:flex; align-items:center; justify-content:center; height:76px; margin-bottom:8px; writing-mode:vertical-rl; letter-spacing:.35em; color:#eee2b8; font-size:18px; background:url('assets/ui/rogueSeacon/roguelikeui_rogueSeacon_rowBg.png') left center/auto 100% no-repeat; }
+.sht-tree-ol-viewport { flex:1; min-width:0; overflow-x:auto; overflow-y:hidden; touch-action:pan-x; scrollbar-width:thin; scrollbar-color:#97723f #b3a07722; }
+.sht-tree-ol-canvas { position:relative; max-width:none; }
+.sht-tree-ol-band { position:absolute; left:0; right:0; height:76px; background:#a58f5c47; pointer-events:none; }
+.sht-tree-ol-layer { position:absolute; top:7px; transform:translateX(-50%); color:#88723d; font:18px/1.2 'SHT-Original-UI',KaiTi,STKaiti,serif; }
+.sht-tree-ol-edges { position:absolute; left:0; top:0; overflow:visible; max-width:none; pointer-events:none; }
+.sht-tree-ol-edges path { fill:none; stroke:#8e7c53; stroke-width:5px; opacity:.85; }
+.sht-tree-ol-edges path.sht-tree-ol-edge-open { stroke:#bc8629; opacity:1; }
+.sht-tree-ol-node { position:absolute; transform:translate(-50%,-50%); display:flex; align-items:center; justify-content:center; width:94px; height:70px; min-height:0; padding:0; border:0; border-image:none; background:none; box-shadow:none; color:#f2dfb4; z-index:1; }
+.sht-tree-ol-node:active:not(:disabled) { transform:translate(-50%,-50%); }
+.sht-tree-ol-node>.sht-tree-ol-art { filter:saturate(.2); }
+.sht-tree-ol-node-open>.sht-tree-ol-art { filter:none; }
+.sht-tree-ol-node-chosen { outline:2px solid #f1d26d; outline-offset:3px; }
+.sht-tree-ol-node:focus-visible,.sht-tree-ol-viewport:focus-visible,.sht-tree-ol-scroll-button:focus-visible { outline:2px solid #fff0a8; outline-offset:3px; }
+.sht-tree-ol-skill-name { display:block; min-width:76px; padding:5px 12px; font:17px/1.1 'SHT-Original-UI',KaiTi,STKaiti,serif; color:#f2ead2; background:url('assets/ui/roguecommon/rogue_skill_bg_1.png') center/100% 100% no-repeat; white-space:nowrap; }
+.sht-tree-ol-node-open .sht-tree-ol-skill-name { color:#fff5cf; }
+.sht-tree-ol-node-card>.sht-tree-ol-art { border-radius:0; background-color:#eee5ca; background-image:url('assets/ui/roguecommon/rogue_award_quality_bg_1.png')!important; width:48px; height:65px; }
+.sht-tree-ol-node-card .sht-tree-ol-type-icon { left:10px; top:11px; filter:sepia(1) brightness(.6); }
+.sht-tree-ol-node-card .sht-tree-ol-art-label { top:42px; max-width:90px; font-size:11px; }
+.sht-tree-ol-card { width:48px; height:65px; flex:none; }
+.sht-tree-ol-card .sht-playing-corner { font-size:10px; }
+.sht-tree-ol-node-card:not(.sht-tree-ol-node-open) .sht-tree-ol-card { filter:saturate(.25); }
+.sht-tree-ol-detail { position:absolute; z-index:8; right:16px; bottom:8px; width:360px; max-height:470px; overflow:hidden; display:flex; flex-direction:column; padding:18px 22px; color:#4f3a20; background:#eadbbaf7; border:1px solid #8d6b32; box-shadow:0 8px 35px #26180b80; font:13px/1.65 'Microsoft YaHei',sans-serif; }
+.sht-tree-ol-detail-head { display:flex; flex:none; align-items:center; justify-content:space-between; gap:12px; margin-bottom:8px; }
+.sht-tree-ol-detail-head>h2 { margin:0; font:24px/1.3 'SHT-Original-UI',KaiTi,STKaiti,serif; }
+.sht-tree-ol-close { border:0; border-image:none; padding:0; min-height:26px; width:26px; height:26px; color:#6c4e27; background:transparent; font-size:22px; }
+.sht-tree-ol-detail small { color:#8c6e3c; }
+.sht-tree-ol-detail p { margin-bottom:12px; white-space:pre-line; }
+.sht-tree-ol-warning { color:#945328; font-size:11px; }
+.sht-tree-ol-detail-action { display:flex; width:100%; margin-top:8px; font-size:13px; }
+.sht-tree-ol-detail-content { flex:1; min-height:0; overflow:auto; padding-right:6px; scrollbar-width:thin; overscroll-behavior:contain; }
+.sht-tree-ol-detail-actions { flex:none; padding-top:4px; }
+.sht-tree-ol-detail-actions>.sht-tree-ol-warning { display:block; line-height:1.4; margin-top:5px; }
+.sht-tree-ol-random-icon { position:absolute; inset:8px; width:46px; height:46px; object-fit:contain; }
+.sht-tree-ol-node-cost { position:absolute; z-index:3; top:59px; left:50%; transform:translateX(-50%); min-width:34px; padding:0 5px 0 16px; line-height:16px; font:12px/16px 'Microsoft YaHei',sans-serif; color:#fff0ca; background:#574220e6 url('assets/ui/rogueSeacon/roguelikeui_rogueSeacon_point.png') 1px center/16px 13px no-repeat; border-radius:3px; }
+.sht-tree-ol-cost-short { color:#ffa487; }
+.sht-tree-ol-targets { flex:none; width:90px; padding-top:32px; margin-left:9px; }
+.sht-tree-ol-target-row { position:relative; display:flex; align-items:center; justify-content:center; width:90px; height:76px; margin-bottom:8px; background:url('assets/ui/rogueSeacon/roguelikeui_rogueSeacon_rowEndBg.png') center/100% 100% no-repeat; }
+.sht-tree-ol-target { display:flex; align-items:center; justify-content:center; width:86px; height:74px; padding:0; border:0; border-image:none; background:none; box-shadow:none; }
+.sht-tree-ol-target .sht-tree-ol-art-label { max-width:94px; overflow:hidden; text-overflow:ellipsis; }
+.sht-tree-ol-scroll-button:disabled { opacity:.4; cursor:default; }
+.sht-tree-ol-branch { padding:8px 0; border-top:1px solid #a3814b55; }
+.sht-tree-ol-branch h3 { margin:0 0 5px; font:16px/1.3 'SHT-Original-UI',KaiTi,STKaiti,serif; }
+.sht-tree-ol-branch-link { display:block; width:100%; min-height:28px; margin:4px 0; padding:4px 8px; text-align:left; font:12px/1.5 'Microsoft YaHei',sans-serif; }
+.sht-tree-ol-schools { display:flex; flex-wrap:wrap; gap:5px; margin:5px 0 10px; }
+.sht-tree-ol-school-link { min-height:24px; padding:3px 9px; border:0; border-image:none; color:#ffedba; font:13px/1.4 'SHT-Original-UI',KaiTi,STKaiti,serif; background:url('assets/ui/rogueSeacon/rogue_school_name_bg.png') center/100% 100% no-repeat; box-shadow:none; }
+.sht-tree-ol-picker,.sht-tree-ol-school { inset:14px 32px 14px; width:auto; height:auto; max-height:none; padding:20px 26px; }
+.sht-tree-ol-picker-tip { flex:none; margin:0 0 8px!important; font-size:12px; color:#735b35; }
+.sht-tree-ol-picker-slots { display:flex; gap:8px; flex:none; margin-bottom:12px; }
+.sht-tree-ol-slot-tab { flex:1; min-height:30px; font-size:12px; padding:3px 4px; }
+.sht-tree-ol-slot-tab.active { color:#fff3c8; background:#92733c; outline:1px solid #f5d780; }
+.sht-tree-ol-picker-layout { display:grid; grid-template-columns:minmax(0,1fr) 244px; gap:24px; flex:1; min-height:0; }
+.sht-tree-ol-picker-list { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); grid-auto-rows:102px; align-content:start; gap:9px 4px; padding:6px 5px 10px; min-height:0; overflow:auto; scrollbar-width:thin; overscroll-behavior:contain; }
+.sht-tree-ol-picker-row { position:relative; display:flex; justify-content:center; align-items:flex-start; min-width:0; min-height:0; width:100%; height:100px; padding:8px 0; margin:0; border:1px solid transparent; border-image:none; background:none; box-shadow:none; }
+.sht-tree-ol-picker-row.active { outline:2px solid #b0822e; outline-offset:-2px; background:#c3a16430; }
+.sht-tree-ol-picker-row .sht-tree-ol-art-label { max-width:98px; font-size:12px; }
+.sht-tree-ol-picker-unavailable .sht-tree-ol-art { filter:saturate(.35); }
+.sht-tree-ol-equipped-tag { position:absolute; top:78px; left:50%; transform:translateX(-50%); width:58px; padding:1px 0; text-align:center; font:11px/14px 'Microsoft YaHei',sans-serif; color:#fff0c4; background:#67532ae6; }
+.sht-tree-ol-picker-preview { display:flex; flex-direction:column; align-items:center; min-height:0; padding-left:18px; border-left:1px solid #a3814b66; }
+.sht-tree-ol-picker-preview>.sht-tree-ol-art { flex:none; }
+.sht-tree-ol-picker-preview>h3 { margin:7px 0 1px; font:23px/1.3 'SHT-Original-UI',KaiTi,STKaiti,serif; }
+.sht-tree-ol-picker-preview>small { font-size:12px; flex:none; }
+.sht-tree-ol-picker-description { width:100%; flex:1; min-height:0; overflow:auto; margin-top:9px; padding-right:4px; font-size:12px; scrollbar-width:thin; overscroll-behavior:contain; }
+.sht-tree-ol-picker-description>p { margin:0 0 8px; }
+.sht-tree-ol-picker-preview>.sht-tree-ol-detail-action { flex:none; min-height:32px; }
+.sht-tree-ol-empty-text { grid-column:1/-1; margin:35px 18px!important; text-align:center; color:#8c6e3c; }
+.sht-tree-ol-school-effect,.sht-tree-ol-school-progress { flex:none; margin:0 0 8px!important; font-size:12px; }
+.sht-tree-ol-school-effect { max-height:70px; overflow:auto; }
+.sht-tree-ol-school-progress { color:#91652b; border-bottom:1px solid #a3814b66; padding-bottom:8px; }
+.sht-tree-ol-school-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); align-content:start; gap:9px; flex:1; min-height:0; overflow:auto; padding:4px; scrollbar-width:thin; overscroll-behavior:contain; }
+.sht-tree-ol-school-member { display:grid; grid-template-columns:70px minmax(0,1fr); gap:10px; padding:12px; min-height:112px; background:#a58f5c20; border:1px solid #a3814b44; }
+.sht-tree-ol-school-member>.sht-tree-ol-art { filter:grayscale(1); }
+.sht-tree-ol-school-owned>.sht-tree-ol-art { filter:none; }
+.sht-tree-ol-school-member-text h3 { margin:0 0 3px; font:20px/1.3 'SHT-Original-UI',KaiTi,STKaiti,serif; }
+.sht-tree-ol-school-member-text small { font-size:11px; }
+.sht-tree-ol-school-member-text p { margin:7px 0 0; font-size:12px; line-height:1.5; }

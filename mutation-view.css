@@ -1,0 +1,48 @@
+/* Original difficulty and seed panels share the same fixed, scaled stage. */
+.sht-difficulty-expanded .sht-difficulty-content { left:590px; top:42px; width:620px; }
+.sht-difficulty-expanded .sht-difficulty-content h2 { margin:8px 0 0; font-size:36px; }
+.sht-difficulty-modes { display:flex; justify-content:center; gap:24px; height:42px; }
+.sht-difficulty-modes .sht-button { width:120px; min-height:36px; padding:0 15px; font-size:23px; border:0; border-bottom:2px solid transparent; border-image:none; border-radius:0; background:transparent; box-shadow:none; color:#dac99c; }
+.sht-difficulty-modes .sht-button.active { color:#ffe9a1; border-bottom-color:#efd07b; background:#5a45254d; }
+.sht-difficulty-expanded .sht-difficulty-levels { gap:14px; margin:13px 0; }
+.sht-difficulty-expanded .sht-difficulty-levels .sht-button { height:62px; }
+.sht-difficulty-expanded .sht-difficulty-levels .sht-button span { position:absolute; top:37px; left:0; z-index:2; font-size:22px; line-height:1; color:#ffebac; text-shadow:0 1px 3px #000,0 0 3px #000; }
+.sht-difficulty-levels .sht-level-locked:not(.active) { opacity:.55; }
+.sht-difficulty-description { max-height:155px; overflow:auto; scrollbar-width:thin; scrollbar-color:#b3934e transparent; }
+.sht-difficulty-expanded .sht-difficulty-description p { margin:4px 8px; min-height:0; max-height:none; overflow:visible; font-size:23px; line-height:1.5; white-space:pre-line; }
+.sht-difficulty-expanded .sht-difficulty-description .sht-difficulty-mutation-note { color:#dcb462; font-size:21px; }
+.sht-difficulty-expanded .sht-difficulty-note { left:580px; top:382px; width:640px; min-height:48px; margin:0; font-size:20px; line-height:1.4; }
+.sht-difficulty-expanded .sht-difficulty-confirm { left:784px; }
+
+.sht-root .sht-mutation-scene { display:flex; flex-direction:column; align-items:center; width:1280px; height:580px; padding:25px 44px 44px; gap:0; }
+.sht-root .sht-mutation-title { display:flex; align-items:center; justify-content:center; width:500px; height:63px; flex:none; margin:0; background:url('assets/ui/rogueSeed/title_bg.png') center/100% 100% no-repeat; color:#ffe7a4; font:34px/1.3 'SHT-Original-UI',KaiTi,STKaiti,serif; text-shadow:0 2px 3px #38210d; }
+.sht-mutation-subtitle { flex:none; margin:0 0 10px; color:#f6e5bc; font-size:20px; }
+.sht-mutation-choices { display:flex; align-items:center; justify-content:safe center; gap:38px; width:100%; min-height:0; flex:1; overflow-x:auto; overflow-y:hidden; padding:8px 12px 20px; scrollbar-width:thin; scrollbar-color:#b3934e #33271766; }
+.sht-mutation-card.sht-button { --mutation-card:url('assets/ui/rogueSeed/diffbreakbg1.png'); position:relative; display:flex; flex-direction:column; align-items:center; flex:0 0 236px; width:236px; height:324px; min-height:324px; padding:0 15px 17px; border:0; border-image:none; border-radius:0; background:var(--mutation-card) center/100% 100% no-repeat; color:#493b27; box-shadow:none; font-family:'SHT-Original-UI',KaiTi,STKaiti,serif; text-align:center; }
+.sht-mutation-card.sht-mutation-quality-2 { --mutation-card:url('assets/ui/rogueSeed/diffbreakbg2.png'); }
+.sht-mutation-card.sht-mutation-quality-3 { --mutation-card:url('assets/ui/rogueSeed/diffbreakbg3.png'); }
+.sht-mutation-card.sht-mutation-quality-4 { --mutation-card:url('assets/ui/rogueSeed/diffbreakbg4.png'); }
+.sht-mutation-card.sht-mutation-selected { box-shadow:0 0 0 3px #ffe87b,0 0 15px #ffe24b99; }
+.sht-mutation-name { display:flex; align-items:center; justify-content:center; flex:none; width:100%; min-height:56px; color:#fff0c8; font-size:25px; font-weight:normal; }
+.sht-mutation-reward { display:flex; align-items:center; justify-content:center; width:100%; min-height:45px; flex:none; padding:5px 0; font-size:17px; line-height:1.35; white-space:pre-line; }
+.sht-mutation-emblem { display:flex; align-items:center; justify-content:center; flex:none; width:80px; height:80px; background:url('assets/ui/roguecommon/rogue_zhanfa_bg_1.png') center/contain no-repeat; }
+.sht-mutation-emblem.sht-mutation-quality-2 { background-image:url('assets/ui/roguecommon/rogue_zhanfa_bg_2.png'); }
+.sht-mutation-emblem.sht-mutation-quality-3 { background-image:url('assets/ui/roguecommon/rogue_zhanfa_bg_3.png'); }
+.sht-mutation-emblem.sht-mutation-quality-4 { background-image:url('assets/ui/roguecommon/rogue_zhanfa_bg_4.png'); }
+.sht-mutation-icon { width:62px; height:62px; object-fit:contain; }
+.sht-mutation-description { display:block; flex:1; min-height:0; width:100%; margin:14px 0 0; overflow:auto; font-size:21px; line-height:1.55; text-align:left; white-space:pre-line; scrollbar-width:thin; scrollbar-color:#ad935c transparent; }
+.sht-mutation-confirm.sht-button { flex:none; width:180px; min-height:44px; margin-top:1px; }
+.sht-map-effects.sht-button { position:absolute; left:50px; top:224px; display:flex; flex-direction:column-reverse; align-items:center; justify-content:center; gap:3px; width:100px; padding:0; color:#ead8a4; font:20px/1.3 'SHT-Original-UI',KaiTi,STKaiti,serif; text-shadow:0 2px 3px #1f160d; border:0; border-image:none; background:transparent; box-shadow:none; }
+.sht-map-effects img { display:block; width:47px; height:47px; object-fit:contain; }
+.sht-effects-dialog .sht-prompt-panel { width:720px; }
+.sht-effects-list { display:flex; flex-direction:column; gap:20px; max-height:340px; overflow:auto; padding:10px 8px; scrollbar-width:thin; scrollbar-color:#b3934e transparent; }
+.sht-effects-item { display:flex; gap:18px; align-items:flex-start; text-align:left; }
+.sht-effects-description { flex:1; min-width:0; }
+.sht-effects-description h3 { margin:0 0 5px; color:#f3ca6e; font:24px/1.3 'SHT-Original-UI',KaiTi,STKaiti,serif; }
+.sht-effects-description p { margin:0; color:#e9d9af; font-size:21px; line-height:1.6; white-space:pre-line; }
+.sht-effects-description small { color:#c9ad73; font-size:17px; }
+.sht-mutation-results p { margin:0 0 4px; color:#f2d898; font-size:19px; }
+.sht-mutation-results h3 { flex:0 0 90px; white-space:nowrap; }
+.sht-mutation-result-values { display:flex; flex-wrap:wrap; gap:4px 18px; }
+.sht-mutation-results small { color:#c9ad73; font-size:16px; }
+.sht-mutation-result-values small { width:100%; }

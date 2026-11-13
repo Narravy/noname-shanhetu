@@ -1,0 +1,185 @@
+/* Independent copy of 十周年UI onlineUI's static player scheme.
+ * Geometry/frames: src/styles/player4.css (130×180 single general).
+ * DOM/camp text: src/ui/player-element.js and src/ui/player-group.js.
+ * Compact health: src/overrides/player/state.js.
+ * Health artwork: inherited noname glass.css skin from the reference video.
+ * Compact pip-first arrangement: player2.css; OL geometry: player4.css.
+ * All copied resources live in assets/ol-ui; no live 十周年UI dependency.
+ */
+@font-face {
+  font-family: 'SHT-OL-Name';
+  src: url('assets/ol-ui/ui/assets/fonts/FZLBJW.woff2') format('woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'SHT-OL-Camp';
+  src: url('assets/ol-ui/core/font/yuanli.woff2') format('woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'SHT-OL-Health';
+  src: url('assets/ol-ui/core/font/xinwei.woff2') format('woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'SHT-OL-Armor';
+  src: url('assets/ol-ui/core/font/shousha.woff2') format('woff2');
+  font-display: swap;
+}
+.sht-ol-portrait {
+  --sht-ol-portrait-scale:1;
+  position:relative; display:block; width:190px; height:240px; min-width:0;
+  aspect-ratio:auto; overflow:visible; background:none; border:0; border-image:none;
+  border-radius:0; box-shadow:none; isolation:isolate;
+}
+.sht-ol-portrait::before,.sht-ol-portrait::after { content:none; }
+.sht-ol-portrait .sht-ol-player {
+  /* Visible sidebar runs from the frame's inner edge (about 3px) to the
+   * avatar at 20px. All sidebar contents share this center before scaling. */
+  --sht-ol-sidebar-center:11.5px;
+  position:absolute; left:30px; top:30px; width:130px; height:180px;
+  transform:scale(var(--sht-ol-portrait-scale)); transform-origin:top left;
+  border-radius:8px; background:url('assets/ol-ui/image/ui/player-bg/bjOL1.png') center/100% 100% no-repeat;
+  box-shadow:0 -1px 3px #000,0 3px 8px #000;
+}
+.sht-ol-portrait .sht-ol-primary-avatar {
+  display:block; position:absolute; left:20px; bottom:0; width:84.9%; height:100%;
+  border-radius:0 6px 6px 0; overflow:hidden; z-index:61;
+}
+.sht-ol-portrait .sht-ol-avatar-art {
+  display:block; position:absolute; inset:0; width:100%; height:100%; max-width:none;
+  object-fit:cover; object-position:center top; border:0; border-radius:inherit;
+}
+.sht-ol-portrait .sht-ol-avatar-art[hidden] { display:none; }
+.sht-ol-portrait .sht-ol-camp-wrap {
+  display:block; position:absolute; left:-13px; top:-58px; width:45px; height:239px;
+  pointer-events:none; z-index:67;
+}
+.sht-ol-portrait .sht-ol-camp-back {
+  position:absolute; left:26%; top:24%; right:26%; bottom:1%;
+  border-radius:3px 0 0 3px; border:.5px solid #000; background:rgb(154,148,122);
+  box-shadow:inset 0 0 10px #000c,0 0 15px #0009;
+}
+.sht-ol-portrait .sht-ol-camp-back::before {
+  content:''; position:absolute; inset:0;
+  background:url('assets/ol-ui/image/styles/decade/border_diwen.png') center/100% 100% no-repeat;
+  opacity:.1; box-shadow:0 0 0 2px #000; z-index:1;
+}
+.sht-ol-portrait [data-camp='wei'] .sht-ol-camp-back { background:#484d60; }
+.sht-ol-portrait [data-camp='shu'] .sht-ol-camp-back { background:#754c50; }
+.sht-ol-portrait [data-camp='wu'] .sht-ol-camp-back { background:#515b42; }
+.sht-ol-portrait [data-camp='qun'] .sht-ol-camp-back { background:#685a37; }
+.sht-ol-portrait [data-camp='shen'] .sht-ol-camp-back { background:#685f40; }
+.sht-ol-portrait [data-camp='shen2'] .sht-ol-camp-back { background:rgb(112,52,126); }
+.sht-ol-portrait [data-camp='ye'] .sht-ol-camp-back,.sht-ol-portrait [data-camp='jin'] .sht-ol-camp-back { background:#574259; }
+.sht-ol-portrait [data-camp='key'] .sht-ol-camp-back { background:rgb(147,132,183); }
+.sht-ol-portrait [data-camp='western'] .sht-ol-camp-back { background:rgb(93,44,105); }
+.sht-ol-portrait [data-camp='devil'] .sht-ol-camp-back { background:rgb(77,24,28); }
+.sht-ol-portrait [data-camp='daqin'] .sht-ol-camp-back { background:rgb(100,100,100); }
+.sht-ol-portrait .sht-ol-camp-border {
+  display:block; position:absolute; left:-10px; top:28px; width:375%; max-width:none; height:95%;
+  background:url('assets/ol-ui/image/styles/decade/border_campOL5.png') center/100% 100% no-repeat;
+}
+.sht-ol-portrait:is([data-frame-level='2'],[data-frame-level='3'],[data-frame-level='4']) .sht-ol-camp-border { left:-12px; top:31px; width:382%; }
+.sht-ol-portrait[data-frame-level='2'] .sht-ol-camp-border { background-image:url('assets/ol-ui/image/styles/decade/border_campOL2.png'); }
+.sht-ol-portrait[data-frame-level='3'] .sht-ol-camp-border { background-image:url('assets/ol-ui/image/styles/decade/border_campOL3.png'); }
+.sht-ol-portrait[data-frame-level='4'] .sht-ol-camp-border { background-image:url('assets/ol-ui/image/styles/decade/border_campOL4.png'); }
+.sht-ol-portrait .sht-ol-avatar-name {
+  display:flex; align-items:center; justify-content:center; position:absolute;
+  left:calc(13px + var(--sht-ol-sidebar-center)); top:82px; width:18px; height:auto;
+  transform:translateX(-50%);
+  font:700 13px/15px 'SHT-OL-Name',KaiTi,serif; color:#f3f2ee;
+  text-shadow:2px 2px 0 #403227,-2px -2px 0 #403227,2px -2px 0 #403227,-2px 2px 0 #403227;
+  white-space:nowrap; writing-mode:vertical-rl; filter:hue-rotate(350deg) saturate(1.2); z-index:79;
+}
+.sht-ol-portrait .sht-ol-camp-name {
+  display:flex; align-items:center; justify-content:center; position:absolute;
+  left:calc(13px + var(--sht-ol-sidebar-center)); top:36px; width:42%; height:29%;
+  transform:translateX(-50%);
+  font:600 15px/1 'SHT-OL-Camp',KaiTi,serif; text-align:center; color:#f3f2ee;
+}
+.sht-ol-portrait [data-camp='wei'] .sht-ol-camp-name { color:#bdc6e5; text-shadow:1px 1px 0 #4a4b5f,-1px -1px 0 #4a4b5f,1px -1px 0 #4a4b5f,-1px 1px 0 #4a4b5f; }
+.sht-ol-portrait [data-camp='shu'] .sht-ol-camp-name { color:#eeae97; text-shadow:1px 1px 0 #754c50,-1px -1px 0 #754c50,1px -1px 0 #754c50,-1px 1px 0 #754c50; }
+.sht-ol-portrait [data-camp='wu'] .sht-ol-camp-name { color:#bbeeaa; text-shadow:1px 1px 0 #48563c,-1px -1px 0 #48563c,1px -1px 0 #48563c,-1px 1px 0 #48563c; }
+.sht-ol-portrait [data-camp='qun'] .sht-ol-camp-name { color:#e6d69b; text-shadow:1px 1px 0 #685f40,-1px -1px 0 #685f40,1px -1px 0 #685f40,-1px 1px 0 #685f40; }
+.sht-ol-portrait [data-camp='shen'] .sht-ol-camp-name { color:#ebd6a1; text-shadow:1px 1px 0 #685f40,-1px -1px 0 #685f40,1px -1px 0 #685f40,-1px 1px 0 #685f40; }
+.sht-ol-portrait :is([data-camp='jin'],[data-camp='devil']) .sht-ol-camp-name { text-shadow:1px 1px 0 #7f4f79,-1px -1px 0 #7f4f79,1px -1px 0 #7f4f79,-1px 1px 0 #7f4f79; }
+.sht-ol-portrait .sht-ol-hp-wrap {
+  display:block; position:absolute; right:127px; bottom:10px; width:10px; height:40px;
+  box-sizing:content-box; border-width:20px 4px 17px 70px; border-style:solid; border-color:transparent;
+  pointer-events:none; z-index:88;
+}
+.sht-ol-portrait .sht-ol-hp {
+  /* The inherited hp-wrap content origin is -11px in player coordinates.
+   * Preserve that wrapper because the armor badge uses its original origin. */
+  display:flex; flex-direction:column; align-items:center; position:absolute;
+  left:calc(11px + var(--sht-ol-sidebar-center)); right:auto; bottom:-7px; transform:translateX(-50%);
+  width:15px; max-width:none; color:#fff; font:13px/12px 'SHT-OL-Name',serif; text-align:center;
+}
+.sht-ol-portrait .sht-ol-hp-pip {
+  display:block; position:static; flex:none; margin-top:-1px; margin-left:0; width:15px; height:14px;
+  min-width:15px; min-height:14px; border:0; border-radius:0; box-shadow:none;
+  background:url('assets/ol-ui/reference-health/glass1.png') center/100% 100% no-repeat;
+}
+.sht-ol-portrait [data-condition='mid'] .sht-ol-hp-pip { background-image:url('assets/ol-ui/reference-health/glass2.png'); }
+.sht-ol-portrait [data-condition='low'] .sht-ol-hp-pip { background-image:url('assets/ol-ui/reference-health/glass3.png'); }
+.sht-ol-portrait .sht-ol-hp .sht-ol-hp-lost { background-image:url('assets/ol-ui/reference-health/glass4.png'); filter:grayscale(1) opacity(.8); }
+.sht-ol-portrait .sht-ol-hp-fraction { display:block; position:static; flex:none; width:100%; }
+.sht-ol-portrait .sht-ol-hp-number { display:block; position:static; line-height:12px; }
+/* Reuse player2's pip-first compact layout with player4's OL dimensions.
+ * Core layout supplies xinwei. Number colors follow the supplied OL screenshot;
+ * the installed source normally leaves them white with a colored glow. */
+.sht-ol-portrait .sht-ol-hp-text { flex-direction:column-reverse; font-family:'SHT-OL-Health',xinwei,serif; }
+.sht-ol-portrait .sht-ol-hp-text > .sht-ol-hp-pip { margin-bottom:4px; }
+.sht-ol-portrait .sht-ol-hp-text[data-condition='high'] { color:#70a344; }
+.sht-ol-portrait .sht-ol-hp-text[data-condition='mid'] { color:#e4bc52; }
+.sht-ol-portrait .sht-ol-hp-text[data-condition='low'] { color:#e4574e; }
+.sht-ol-portrait .sht-ol-armor {
+  display:flex; position:relative; justify-content:center; align-items:center;
+  bottom:120%; left:113px; width:25.5px; max-width:none; height:27px; flex:none;
+  color:#fff; font:500 18px/1 'SHT-OL-Armor',shousha,serif;
+  background:url('assets/ol-ui/image/styles/decade/shieldOL.png') center/100% 100% no-repeat; z-index:100;
+}
+.sht-ol-portrait .sht-ol-identity {
+  position:absolute; top:-12px; right:-7px; width:36px; height:40px;
+  background-size:100% 100%; background-repeat:no-repeat; background-position:center; z-index:89;
+}
+
+/* Scoped copy of 十周年UI src/styles/equip.css's player > equips > card > name2
+ * rules, with onlineUI's 17%/5% inset variables resolved locally. This is the
+ * embedded area used with aloneEquip off, not the separate equips-wrap panel.
+ * Its source appearance uses CSS colors/borders and needs no equipment PNG.
+ * The five 16px slots retain subtype placement without an engine card object.
+ */
+.sht-ol-portrait .sht-ol-equipped-items {
+  position:absolute; display:flex; flex-direction:column;
+  left:17%; right:5%; bottom:3%; width:auto; height:80px;
+  background:none; border-radius:0; box-shadow:none; transform:none;
+  transform-origin:center; pointer-events:none; z-index:88;
+}
+.sht-ol-portrait .sht-ol-equipment {
+  display:flex; align-items:center; align-content:center; justify-content:center;
+  position:absolute; left:0; width:100%; height:16px;
+  background:rgba(228,207,166,.8); border:1px solid rgb(95,55,45);
+  border-image:none; border-radius:1px; box-sizing:border-box; text-shadow:none;
+  pointer-events:auto; cursor:default;
+}
+.sht-ol-portrait .sht-ol-equipment-label {
+  display:flex; align-items:center; align-content:center; justify-content:center;
+  position:absolute; left:0; top:0; width:100%; height:100%; margin:0; gap:3px;
+  font:700 13px/15px 'SHT-OL-Camp',yuanli,serif; color:#181818;
+  text-align:center; text-shadow:none; pointer-events:none; white-space:nowrap;
+}
+.sht-ol-portrait .sht-ol-equipment-suit {
+  display:block; position:static; flex:none;
+}
+.sht-ol-portrait .sht-ol-equipment:is([data-suit='heart'],[data-suit='diamond']) .sht-ol-equipment-label { color:#8b0000; }
+.sht-ol-portrait .sht-ol-equipment-name {
+  display:block; position:static; flex:0 1 auto; min-width:0; overflow:hidden; text-overflow:ellipsis;
+}
+.sht-ol-portrait .sht-ol-equipment-range { display:block; position:static; flex:none; }
+
+/* Keep each scene's positioning while scaling the complete source skeleton. */
+.sht-ol-portrait.sht-selection-portrait { position:absolute; width:210px; height:265px; --sht-ol-portrait-scale:1.1053; }
+.sht-ol-portrait.sht-hud-portrait { position:absolute; width:190px; height:240px; --sht-ol-portrait-scale:1; }
+.sht-ol-portrait.sht-ol-enemy-portrait { width:176.7px; height:223.2px; max-width:none; --sht-ol-portrait-scale:.93; }

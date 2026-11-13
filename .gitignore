@@ -1,0 +1,16 @@
+# Game resources and original configuration are supplied locally, not published.
+/assets/
+/data/
+/vendor/
+/assets-manifest.json
+/dist/
+/local/
+node_modules/
+*.zip
+*.apk
+*.log
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
